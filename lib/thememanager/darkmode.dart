@@ -10,8 +10,9 @@ class ThemeManager extends ChangeNotifier {
   get themeInfo => _themeStatus;
 
   ThemeManager() {
-    _themeStatus = false;
+    _themeStatus = true;
     _getSharedpref();
+    notifyListeners();
   }
   void themeToggeler() {
     _themeStatus = !_themeStatus;
