@@ -39,9 +39,6 @@ class _DataScreenState extends State<DataScreen> {
                             ? Colors.pink
                             : Colors.indigoAccent),
                   ),
-                  SizedBox(
-                    height: 10.0,
-                  ),
                   Text(
                     widget.code.AED,
                     style:
@@ -52,21 +49,24 @@ class _DataScreenState extends State<DataScreen> {
                     style: TextStyle(
                       fontFamily: 'Ubuntu',
                       fontWeight: FontWeight.bold,
-                      fontSize: 30.0,
+                      fontSize: 27.0,
                       color: Theme.of(context).accentColor,
                     ),
                   ),
                   Padding(
-                      padding: EdgeInsets.only(bottom: 5.0),
+                    padding: EdgeInsets.only(bottom: 5.0),
+                    child: Flexible(
                       child: CircleAvatar(
                         radius: 32,
                         backgroundColor: Colors.black54,
                         child: CircleAvatar(
                           radius: 30.0,
                           backgroundColor: Colors.grey,
-                          backgroundImage: AssetImage('images/usa.png'),
+                          backgroundImage: AssetImage('images/uae.png'),
                         ),
-                      ))
+                      ),
+                    ),
+                  )
                 ],
               ),
               elevation: 4.0,
@@ -111,9 +111,6 @@ class _DataScreenState extends State<DataScreen> {
                             ? Colors.pink
                             : Colors.indigoAccent),
                   ),
-                  SizedBox(
-                    height: 10.0,
-                  ),
                   Text(
                     widget.code.ARS,
                     style:
@@ -125,7 +122,7 @@ class _DataScreenState extends State<DataScreen> {
                     style: TextStyle(
                       fontFamily: 'Ubuntu',
                       fontWeight: FontWeight.bold,
-                      fontSize: 30.0,
+                      fontSize: 27.0,
                       color: Theme.of(context).accentColor,
                     ),
                   ),
@@ -133,7 +130,8 @@ class _DataScreenState extends State<DataScreen> {
                     height: 10.0,
                   ),
                   Padding(
-                      padding: EdgeInsets.only(bottom: 5.0),
+                    padding: EdgeInsets.only(bottom: 5.0),
+                    child: Flexible(
                       child: CircleAvatar(
                         radius: 32,
                         backgroundColor: Colors.black54,
@@ -142,7 +140,9 @@ class _DataScreenState extends State<DataScreen> {
                           backgroundColor: Colors.grey,
                           backgroundImage: AssetImage('images/argentina.png'),
                         ),
-                      ))
+                      ),
+                    ),
+                  )
                 ],
               ),
               elevation: 4.0,
@@ -187,9 +187,6 @@ class _DataScreenState extends State<DataScreen> {
                             ? Colors.pink
                             : Colors.indigoAccent),
                   ),
-                  SizedBox(
-                    height: 10.0,
-                  ),
                   Text(
                     widget.code.AUD,
                     style:
@@ -201,7 +198,7 @@ class _DataScreenState extends State<DataScreen> {
                     style: TextStyle(
                       fontFamily: 'Ubuntu',
                       fontWeight: FontWeight.bold,
-                      fontSize: 30.0,
+                      fontSize: 27.0,
                       color: Theme.of(context).accentColor,
                     ),
                   ),
@@ -209,7 +206,8 @@ class _DataScreenState extends State<DataScreen> {
                     height: 10.0,
                   ),
                   Padding(
-                      padding: EdgeInsets.only(bottom: 5.0),
+                    padding: EdgeInsets.only(bottom: 5.0),
+                    child: Flexible(
                       child: CircleAvatar(
                         radius: 32,
                         backgroundColor: Colors.black54,
@@ -218,7 +216,9 @@ class _DataScreenState extends State<DataScreen> {
                           backgroundColor: Colors.grey,
                           backgroundImage: AssetImage('images/australia.png'),
                         ),
-                      ))
+                      ),
+                    ),
+                  )
                 ],
               ),
               elevation: 4.0,
@@ -263,9 +263,6 @@ class _DataScreenState extends State<DataScreen> {
                             ? Colors.pink
                             : Colors.indigoAccent),
                   ),
-                  SizedBox(
-                    height: 10.0,
-                  ),
                   Text(
                     widget.code.BGN,
                     style:
@@ -277,7 +274,7 @@ class _DataScreenState extends State<DataScreen> {
                     style: TextStyle(
                       fontFamily: 'Ubuntu',
                       fontWeight: FontWeight.bold,
-                      fontSize: 30.0,
+                      fontSize: 27.0,
                       color: Theme.of(context).accentColor,
                     ),
                   ),
@@ -285,7 +282,8 @@ class _DataScreenState extends State<DataScreen> {
                     height: 10.0,
                   ),
                   Padding(
-                      padding: EdgeInsets.only(bottom: 5.0),
+                    padding: EdgeInsets.only(bottom: 5.0),
+                    child: Flexible(
                       child: CircleAvatar(
                         radius: 32,
                         backgroundColor: Colors.black54,
@@ -294,7 +292,9 @@ class _DataScreenState extends State<DataScreen> {
                           backgroundColor: Colors.grey,
                           backgroundImage: AssetImage('images/bulgaria.png'),
                         ),
-                      ))
+                      ),
+                    ),
+                  )
                 ],
               ),
               elevation: 4.0,
@@ -339,9 +339,6 @@ class _DataScreenState extends State<DataScreen> {
                             ? Colors.pink
                             : Colors.indigoAccent),
                   ),
-                  SizedBox(
-                    height: 10.0,
-                  ),
                   Text(
                     widget.code.BRL,
                     style:
@@ -353,7 +350,7 @@ class _DataScreenState extends State<DataScreen> {
                     style: TextStyle(
                       fontFamily: 'Ubuntu',
                       fontWeight: FontWeight.bold,
-                      fontSize: 30.0,
+                      fontSize: 27.0,
                       color: Theme.of(context).accentColor,
                     ),
                   ),
@@ -361,7 +358,8 @@ class _DataScreenState extends State<DataScreen> {
                     height: 10.0,
                   ),
                   Padding(
-                      padding: EdgeInsets.only(bottom: 5.0),
+                    padding: EdgeInsets.only(bottom: 5.0),
+                    child: Flexible(
                       child: CircleAvatar(
                         radius: 32,
                         backgroundColor: Colors.black54,
@@ -370,7 +368,9 @@ class _DataScreenState extends State<DataScreen> {
                           backgroundColor: Colors.grey,
                           backgroundImage: AssetImage('images/brazil.png'),
                         ),
-                      ))
+                      ),
+                    ),
+                  )
                 ],
               ),
               elevation: 4.0,
@@ -415,9 +415,6 @@ class _DataScreenState extends State<DataScreen> {
                             ? Colors.pink
                             : Colors.indigoAccent),
                   ),
-                  SizedBox(
-                    height: 10.0,
-                  ),
                   Text(
                     widget.code.BSD,
                     style:
@@ -429,7 +426,7 @@ class _DataScreenState extends State<DataScreen> {
                     style: TextStyle(
                       fontFamily: 'Ubuntu',
                       fontWeight: FontWeight.bold,
-                      fontSize: 30.0,
+                      fontSize: 27.0,
                       color: Theme.of(context).accentColor,
                     ),
                   ),
@@ -437,7 +434,8 @@ class _DataScreenState extends State<DataScreen> {
                     height: 10.0,
                   ),
                   Padding(
-                      padding: EdgeInsets.only(bottom: 5.0),
+                    padding: EdgeInsets.only(bottom: 5.0),
+                    child: Flexible(
                       child: CircleAvatar(
                         radius: 32,
                         backgroundColor: Colors.black54,
@@ -446,7 +444,9 @@ class _DataScreenState extends State<DataScreen> {
                           backgroundColor: Colors.grey,
                           backgroundImage: AssetImage('images/bahamas.png'),
                         ),
-                      ))
+                      ),
+                    ),
+                  )
                 ],
               ),
               elevation: 4.0,
@@ -491,9 +491,6 @@ class _DataScreenState extends State<DataScreen> {
                             ? Colors.pink
                             : Colors.indigoAccent),
                   ),
-                  SizedBox(
-                    height: 10.0,
-                  ),
                   Text(
                     widget.code.CHF,
                     style:
@@ -505,7 +502,7 @@ class _DataScreenState extends State<DataScreen> {
                     style: TextStyle(
                       fontFamily: 'Ubuntu',
                       fontWeight: FontWeight.bold,
-                      fontSize: 30.0,
+                      fontSize: 27.0,
                       color: Theme.of(context).accentColor,
                     ),
                   ),
@@ -513,7 +510,8 @@ class _DataScreenState extends State<DataScreen> {
                     height: 10.0,
                   ),
                   Padding(
-                      padding: EdgeInsets.only(bottom: 5.0),
+                    padding: EdgeInsets.only(bottom: 5.0),
+                    child: Flexible(
                       child: CircleAvatar(
                         radius: 32,
                         backgroundColor: Colors.black54,
@@ -522,7 +520,9 @@ class _DataScreenState extends State<DataScreen> {
                           backgroundColor: Colors.grey,
                           backgroundImage: AssetImage('images/switzerland.png'),
                         ),
-                      ))
+                      ),
+                    ),
+                  ),
                 ],
               ),
               elevation: 4.0,
@@ -567,9 +567,6 @@ class _DataScreenState extends State<DataScreen> {
                             ? Colors.pink
                             : Colors.indigoAccent),
                   ),
-                  SizedBox(
-                    height: 10.0,
-                  ),
                   Text(
                     widget.code.CLP,
                     style:
@@ -581,7 +578,7 @@ class _DataScreenState extends State<DataScreen> {
                     style: TextStyle(
                       fontFamily: 'Ubuntu',
                       fontWeight: FontWeight.bold,
-                      fontSize: 30.0,
+                      fontSize: 27.0,
                       color: Theme.of(context).accentColor,
                     ),
                   ),
@@ -589,7 +586,8 @@ class _DataScreenState extends State<DataScreen> {
                     height: 10.0,
                   ),
                   Padding(
-                      padding: EdgeInsets.only(bottom: 5.0),
+                    padding: EdgeInsets.only(bottom: 5.0),
+                    child: Flexible(
                       child: CircleAvatar(
                         radius: 32,
                         backgroundColor: Colors.black54,
@@ -598,7 +596,9 @@ class _DataScreenState extends State<DataScreen> {
                           backgroundColor: Colors.grey,
                           backgroundImage: AssetImage('images/chile.png'),
                         ),
-                      ))
+                      ),
+                    ),
+                  )
                 ],
               ),
               elevation: 4.0,
@@ -643,9 +643,6 @@ class _DataScreenState extends State<DataScreen> {
                             ? Colors.pink
                             : Colors.indigoAccent),
                   ),
-                  SizedBox(
-                    height: 10.0,
-                  ),
                   Text(
                     widget.code.CNY,
                     style:
@@ -657,7 +654,7 @@ class _DataScreenState extends State<DataScreen> {
                     style: TextStyle(
                       fontFamily: 'Ubuntu',
                       fontWeight: FontWeight.bold,
-                      fontSize: 30.0,
+                      fontSize: 27.0,
                       color: Theme.of(context).accentColor,
                     ),
                   ),
@@ -665,7 +662,8 @@ class _DataScreenState extends State<DataScreen> {
                     height: 10.0,
                   ),
                   Padding(
-                      padding: EdgeInsets.only(bottom: 5.0),
+                    padding: EdgeInsets.only(bottom: 5.0),
+                    child: Flexible(
                       child: CircleAvatar(
                         radius: 32,
                         backgroundColor: Colors.black54,
@@ -674,7 +672,9 @@ class _DataScreenState extends State<DataScreen> {
                           backgroundColor: Colors.grey,
                           backgroundImage: AssetImage('images/china.png'),
                         ),
-                      ))
+                      ),
+                    ),
+                  )
                 ],
               ),
               elevation: 4.0,
@@ -719,9 +719,6 @@ class _DataScreenState extends State<DataScreen> {
                             ? Colors.pink
                             : Colors.indigoAccent),
                   ),
-                  SizedBox(
-                    height: 10.0,
-                  ),
                   Text(
                     widget.code.COP,
                     style:
@@ -733,7 +730,7 @@ class _DataScreenState extends State<DataScreen> {
                     style: TextStyle(
                       fontFamily: 'Ubuntu',
                       fontWeight: FontWeight.bold,
-                      fontSize: 30.0,
+                      fontSize: 27.0,
                       color: Theme.of(context).accentColor,
                     ),
                   ),
@@ -741,7 +738,8 @@ class _DataScreenState extends State<DataScreen> {
                     height: 10.0,
                   ),
                   Padding(
-                      padding: EdgeInsets.only(bottom: 5.0),
+                    padding: EdgeInsets.only(bottom: 5.0),
+                    child: Flexible(
                       child: CircleAvatar(
                         radius: 32,
                         backgroundColor: Colors.black54,
@@ -750,7 +748,9 @@ class _DataScreenState extends State<DataScreen> {
                           backgroundColor: Colors.grey,
                           backgroundImage: AssetImage('images/colombia.png'),
                         ),
-                      ))
+                      ),
+                    ),
+                  )
                 ],
               ),
               elevation: 4.0,
@@ -795,9 +795,6 @@ class _DataScreenState extends State<DataScreen> {
                             ? Colors.pink
                             : Colors.indigoAccent),
                   ),
-                  SizedBox(
-                    height: 10.0,
-                  ),
                   Text(
                     widget.code.CZK,
                     style:
@@ -809,7 +806,7 @@ class _DataScreenState extends State<DataScreen> {
                     style: TextStyle(
                       fontFamily: 'Ubuntu',
                       fontWeight: FontWeight.bold,
-                      fontSize: 30.0,
+                      fontSize: 27.0,
                       color: Theme.of(context).accentColor,
                     ),
                   ),
@@ -817,7 +814,8 @@ class _DataScreenState extends State<DataScreen> {
                     height: 10.0,
                   ),
                   Padding(
-                      padding: EdgeInsets.only(bottom: 5.0),
+                    padding: EdgeInsets.only(bottom: 5.0),
+                    child: Flexible(
                       child: CircleAvatar(
                         radius: 32,
                         backgroundColor: Colors.black54,
@@ -827,7 +825,9 @@ class _DataScreenState extends State<DataScreen> {
                           backgroundImage:
                               AssetImage('images/czechrepublic.png'),
                         ),
-                      ))
+                      ),
+                    ),
+                  )
                 ],
               ),
               elevation: 4.0,
@@ -872,9 +872,6 @@ class _DataScreenState extends State<DataScreen> {
                             ? Colors.pink
                             : Colors.indigoAccent),
                   ),
-                  SizedBox(
-                    height: 10.0,
-                  ),
                   Text(
                     widget.code.DKK,
                     style:
@@ -886,7 +883,7 @@ class _DataScreenState extends State<DataScreen> {
                     style: TextStyle(
                       fontFamily: 'Ubuntu',
                       fontWeight: FontWeight.bold,
-                      fontSize: 30.0,
+                      fontSize: 27.0,
                       color: Theme.of(context).accentColor,
                     ),
                   ),
@@ -894,7 +891,8 @@ class _DataScreenState extends State<DataScreen> {
                     height: 10.0,
                   ),
                   Padding(
-                      padding: EdgeInsets.only(bottom: 5.0),
+                    padding: EdgeInsets.only(bottom: 5.0),
+                    child: Flexible(
                       child: CircleAvatar(
                         radius: 32,
                         backgroundColor: Colors.black54,
@@ -903,7 +901,9 @@ class _DataScreenState extends State<DataScreen> {
                           backgroundColor: Colors.grey,
                           backgroundImage: AssetImage('images/denmark.png'),
                         ),
-                      ))
+                      ),
+                    ),
+                  )
                 ],
               ),
               elevation: 4.0,
@@ -948,9 +948,6 @@ class _DataScreenState extends State<DataScreen> {
                             ? Colors.pink
                             : Colors.indigoAccent),
                   ),
-                  SizedBox(
-                    height: 10.0,
-                  ),
                   Text(
                     widget.code.DOP,
                     style:
@@ -962,7 +959,7 @@ class _DataScreenState extends State<DataScreen> {
                     style: TextStyle(
                       fontFamily: 'Ubuntu',
                       fontWeight: FontWeight.bold,
-                      fontSize: 30.0,
+                      fontSize: 27.0,
                       color: Theme.of(context).accentColor,
                     ),
                   ),
@@ -970,7 +967,8 @@ class _DataScreenState extends State<DataScreen> {
                     height: 10.0,
                   ),
                   Padding(
-                      padding: EdgeInsets.only(bottom: 5.0),
+                    padding: EdgeInsets.only(bottom: 5.0),
+                    child: Flexible(
                       child: CircleAvatar(
                         radius: 32,
                         backgroundColor: Colors.black54,
@@ -979,7 +977,9 @@ class _DataScreenState extends State<DataScreen> {
                           backgroundColor: Colors.grey,
                           backgroundImage: AssetImage('images/dominica.png'),
                         ),
-                      ))
+                      ),
+                    ),
+                  )
                 ],
               ),
               elevation: 4.0,
@@ -1024,9 +1024,6 @@ class _DataScreenState extends State<DataScreen> {
                             ? Colors.pink
                             : Colors.indigoAccent),
                   ),
-                  SizedBox(
-                    height: 10.0,
-                  ),
                   Text(
                     widget.code.EGP,
                     style:
@@ -1038,7 +1035,7 @@ class _DataScreenState extends State<DataScreen> {
                     style: TextStyle(
                       fontFamily: 'Ubuntu',
                       fontWeight: FontWeight.bold,
-                      fontSize: 30.0,
+                      fontSize: 27.0,
                       color: Theme.of(context).accentColor,
                     ),
                   ),
@@ -1046,7 +1043,8 @@ class _DataScreenState extends State<DataScreen> {
                     height: 10.0,
                   ),
                   Padding(
-                      padding: EdgeInsets.only(bottom: 5.0),
+                    padding: EdgeInsets.only(bottom: 5.0),
+                    child: Flexible(
                       child: CircleAvatar(
                         radius: 32,
                         backgroundColor: Colors.black54,
@@ -1055,7 +1053,9 @@ class _DataScreenState extends State<DataScreen> {
                           backgroundColor: Colors.grey,
                           backgroundImage: AssetImage('images/egypt.png'),
                         ),
-                      ))
+                      ),
+                    ),
+                  )
                 ],
               ),
               elevation: 4.0,
@@ -1100,9 +1100,6 @@ class _DataScreenState extends State<DataScreen> {
                             ? Colors.pink
                             : Colors.indigoAccent),
                   ),
-                  SizedBox(
-                    height: 10.0,
-                  ),
                   Text(
                     widget.code.EUR,
                     style:
@@ -1114,7 +1111,7 @@ class _DataScreenState extends State<DataScreen> {
                     style: TextStyle(
                       fontFamily: 'Ubuntu',
                       fontWeight: FontWeight.bold,
-                      fontSize: 30.0,
+                      fontSize: 27.0,
                       color: Theme.of(context).accentColor,
                     ),
                   ),
@@ -1122,7 +1119,8 @@ class _DataScreenState extends State<DataScreen> {
                     height: 10.0,
                   ),
                   Padding(
-                      padding: EdgeInsets.only(bottom: 5.0),
+                    padding: EdgeInsets.only(bottom: 5.0),
+                    child: Flexible(
                       child: CircleAvatar(
                         radius: 32,
                         backgroundColor: Colors.black54,
@@ -1131,7 +1129,9 @@ class _DataScreenState extends State<DataScreen> {
                           backgroundColor: Colors.grey,
                           backgroundImage: AssetImage('images/europeunion.png'),
                         ),
-                      ))
+                      ),
+                    ),
+                  )
                 ],
               ),
               elevation: 4.0,
@@ -1176,9 +1176,6 @@ class _DataScreenState extends State<DataScreen> {
                             ? Colors.pink
                             : Colors.indigoAccent),
                   ),
-                  SizedBox(
-                    height: 10.0,
-                  ),
                   Text(
                     widget.code.FJD,
                     style:
@@ -1190,7 +1187,7 @@ class _DataScreenState extends State<DataScreen> {
                     style: TextStyle(
                       fontFamily: 'Ubuntu',
                       fontWeight: FontWeight.bold,
-                      fontSize: 30.0,
+                      fontSize: 27.0,
                       color: Theme.of(context).accentColor,
                     ),
                   ),
@@ -1198,7 +1195,8 @@ class _DataScreenState extends State<DataScreen> {
                     height: 10.0,
                   ),
                   Padding(
-                      padding: EdgeInsets.only(bottom: 5.0),
+                    padding: EdgeInsets.only(bottom: 5.0),
+                    child: Flexible(
                       child: CircleAvatar(
                         radius: 32,
                         backgroundColor: Colors.black54,
@@ -1207,7 +1205,9 @@ class _DataScreenState extends State<DataScreen> {
                           backgroundColor: Colors.grey,
                           backgroundImage: AssetImage('images/fiji.png'),
                         ),
-                      ))
+                      ),
+                    ),
+                  )
                 ],
               ),
               elevation: 4.0,
@@ -1252,9 +1252,6 @@ class _DataScreenState extends State<DataScreen> {
                             ? Colors.pink
                             : Colors.indigoAccent),
                   ),
-                  SizedBox(
-                    height: 10.0,
-                  ),
                   Text(
                     widget.code.GBP,
                     style:
@@ -1266,7 +1263,7 @@ class _DataScreenState extends State<DataScreen> {
                     style: TextStyle(
                       fontFamily: 'Ubuntu',
                       fontWeight: FontWeight.bold,
-                      fontSize: 30.0,
+                      fontSize: 27.0,
                       color: Theme.of(context).accentColor,
                     ),
                   ),
@@ -1274,7 +1271,8 @@ class _DataScreenState extends State<DataScreen> {
                     height: 10.0,
                   ),
                   Padding(
-                      padding: EdgeInsets.only(bottom: 5.0),
+                    padding: EdgeInsets.only(bottom: 5.0),
+                    child: Flexible(
                       child: CircleAvatar(
                         radius: 32,
                         backgroundColor: Colors.black54,
@@ -1283,7 +1281,9 @@ class _DataScreenState extends State<DataScreen> {
                           backgroundColor: Colors.grey,
                           backgroundImage: AssetImage('images/uk.png'),
                         ),
-                      ))
+                      ),
+                    ),
+                  )
                 ],
               ),
               elevation: 4.0,
@@ -1328,9 +1328,6 @@ class _DataScreenState extends State<DataScreen> {
                             ? Colors.pink
                             : Colors.indigoAccent),
                   ),
-                  SizedBox(
-                    height: 10.0,
-                  ),
                   Text(
                     widget.code.GTQ,
                     style:
@@ -1342,7 +1339,7 @@ class _DataScreenState extends State<DataScreen> {
                     style: TextStyle(
                       fontFamily: 'Ubuntu',
                       fontWeight: FontWeight.bold,
-                      fontSize: 30.0,
+                      fontSize: 27.0,
                       color: Theme.of(context).accentColor,
                     ),
                   ),
@@ -1350,7 +1347,8 @@ class _DataScreenState extends State<DataScreen> {
                     height: 10.0,
                   ),
                   Padding(
-                      padding: EdgeInsets.only(bottom: 5.0),
+                    padding: EdgeInsets.only(bottom: 5.0),
+                    child: Flexible(
                       child: CircleAvatar(
                         radius: 32,
                         backgroundColor: Colors.black54,
@@ -1359,7 +1357,9 @@ class _DataScreenState extends State<DataScreen> {
                           backgroundColor: Colors.grey,
                           backgroundImage: AssetImage('images/gautemela.png'),
                         ),
-                      ))
+                      ),
+                    ),
+                  )
                 ],
               ),
               elevation: 4.0,
@@ -1404,9 +1404,6 @@ class _DataScreenState extends State<DataScreen> {
                             ? Colors.pink
                             : Colors.indigoAccent),
                   ),
-                  SizedBox(
-                    height: 10.0,
-                  ),
                   Text(
                     widget.code.HKD,
                     style:
@@ -1418,7 +1415,7 @@ class _DataScreenState extends State<DataScreen> {
                     style: TextStyle(
                       fontFamily: 'Ubuntu',
                       fontWeight: FontWeight.bold,
-                      fontSize: 30.0,
+                      fontSize: 27.0,
                       color: Theme.of(context).accentColor,
                     ),
                   ),
@@ -1426,7 +1423,8 @@ class _DataScreenState extends State<DataScreen> {
                     height: 10.0,
                   ),
                   Padding(
-                      padding: EdgeInsets.only(bottom: 5.0),
+                    padding: EdgeInsets.only(bottom: 5.0),
+                    child: Flexible(
                       child: CircleAvatar(
                         radius: 32,
                         backgroundColor: Colors.black54,
@@ -1435,7 +1433,9 @@ class _DataScreenState extends State<DataScreen> {
                           backgroundColor: Colors.grey,
                           backgroundImage: AssetImage('images/hongkong.png'),
                         ),
-                      ))
+                      ),
+                    ),
+                  )
                 ],
               ),
               elevation: 4.0,
@@ -1480,9 +1480,6 @@ class _DataScreenState extends State<DataScreen> {
                             ? Colors.pink
                             : Colors.indigoAccent),
                   ),
-                  SizedBox(
-                    height: 10.0,
-                  ),
                   Text(
                     widget.code.HRK,
                     style:
@@ -1494,7 +1491,7 @@ class _DataScreenState extends State<DataScreen> {
                     style: TextStyle(
                       fontFamily: 'Ubuntu',
                       fontWeight: FontWeight.bold,
-                      fontSize: 30.0,
+                      fontSize: 27.0,
                       color: Theme.of(context).accentColor,
                     ),
                   ),
@@ -1502,7 +1499,8 @@ class _DataScreenState extends State<DataScreen> {
                     height: 10.0,
                   ),
                   Padding(
-                      padding: EdgeInsets.only(bottom: 5.0),
+                    padding: EdgeInsets.only(bottom: 5.0),
+                    child: Flexible(
                       child: CircleAvatar(
                         radius: 32,
                         backgroundColor: Colors.black54,
@@ -1511,7 +1509,9 @@ class _DataScreenState extends State<DataScreen> {
                           backgroundColor: Colors.grey,
                           backgroundImage: AssetImage('images/croatia.png'),
                         ),
-                      ))
+                      ),
+                    ),
+                  )
                 ],
               ),
               elevation: 4.0,
@@ -1556,9 +1556,6 @@ class _DataScreenState extends State<DataScreen> {
                             ? Colors.pink
                             : Colors.indigoAccent),
                   ),
-                  SizedBox(
-                    height: 10.0,
-                  ),
                   Text(
                     widget.code.HUF,
                     style:
@@ -1570,7 +1567,7 @@ class _DataScreenState extends State<DataScreen> {
                     style: TextStyle(
                       fontFamily: 'Ubuntu',
                       fontWeight: FontWeight.bold,
-                      fontSize: 30.0,
+                      fontSize: 27.0,
                       color: Theme.of(context).accentColor,
                     ),
                   ),
@@ -1578,7 +1575,8 @@ class _DataScreenState extends State<DataScreen> {
                     height: 10.0,
                   ),
                   Padding(
-                      padding: EdgeInsets.only(bottom: 5.0),
+                    padding: EdgeInsets.only(bottom: 5.0),
+                    child: Flexible(
                       child: CircleAvatar(
                         radius: 32,
                         backgroundColor: Colors.black54,
@@ -1587,7 +1585,9 @@ class _DataScreenState extends State<DataScreen> {
                           backgroundColor: Colors.grey,
                           backgroundImage: AssetImage('images/hungary.png'),
                         ),
-                      ))
+                      ),
+                    ),
+                  )
                 ],
               ),
               elevation: 4.0,
@@ -1632,9 +1632,6 @@ class _DataScreenState extends State<DataScreen> {
                             ? Colors.pink
                             : Colors.indigoAccent),
                   ),
-                  SizedBox(
-                    height: 10.0,
-                  ),
                   Text(
                     widget.code.IDR,
                     style:
@@ -1646,7 +1643,7 @@ class _DataScreenState extends State<DataScreen> {
                     style: TextStyle(
                       fontFamily: 'Ubuntu',
                       fontWeight: FontWeight.bold,
-                      fontSize: 30.0,
+                      fontSize: 27.0,
                       color: Theme.of(context).accentColor,
                     ),
                   ),
@@ -1654,7 +1651,8 @@ class _DataScreenState extends State<DataScreen> {
                     height: 10.0,
                   ),
                   Padding(
-                      padding: EdgeInsets.only(bottom: 5.0),
+                    padding: EdgeInsets.only(bottom: 5.0),
+                    child: Flexible(
                       child: CircleAvatar(
                         radius: 32,
                         backgroundColor: Colors.black54,
@@ -1663,7 +1661,9 @@ class _DataScreenState extends State<DataScreen> {
                           backgroundColor: Colors.grey,
                           backgroundImage: AssetImage('images/indonesia.png'),
                         ),
-                      ))
+                      ),
+                    ),
+                  )
                 ],
               ),
               elevation: 4.0,
@@ -1708,9 +1708,6 @@ class _DataScreenState extends State<DataScreen> {
                             ? Colors.pink
                             : Colors.indigoAccent),
                   ),
-                  SizedBox(
-                    height: 10.0,
-                  ),
                   Text(
                     widget.code.ILS,
                     style:
@@ -1722,7 +1719,7 @@ class _DataScreenState extends State<DataScreen> {
                     style: TextStyle(
                       fontFamily: 'Ubuntu',
                       fontWeight: FontWeight.bold,
-                      fontSize: 30.0,
+                      fontSize: 27.0,
                       color: Theme.of(context).accentColor,
                     ),
                   ),
@@ -1730,7 +1727,8 @@ class _DataScreenState extends State<DataScreen> {
                     height: 10.0,
                   ),
                   Padding(
-                      padding: EdgeInsets.only(bottom: 3.0),
+                    padding: EdgeInsets.only(bottom: 2.0),
+                    child: Flexible(
                       child: CircleAvatar(
                         radius: 32,
                         backgroundColor: Colors.black54,
@@ -1739,7 +1737,9 @@ class _DataScreenState extends State<DataScreen> {
                           backgroundColor: Colors.grey,
                           backgroundImage: AssetImage('images/israel.png'),
                         ),
-                      ))
+                      ),
+                    ),
+                  )
                 ],
               ),
               elevation: 4.0,
@@ -1784,9 +1784,6 @@ class _DataScreenState extends State<DataScreen> {
                             ? Colors.pink
                             : Colors.indigoAccent),
                   ),
-                  SizedBox(
-                    height: 10.0,
-                  ),
                   Text(
                     widget.code.INR,
                     style:
@@ -1798,7 +1795,7 @@ class _DataScreenState extends State<DataScreen> {
                     style: TextStyle(
                       fontFamily: 'Ubuntu',
                       fontWeight: FontWeight.bold,
-                      fontSize: 30.0,
+                      fontSize: 27.0,
                       color: Theme.of(context).accentColor,
                     ),
                   ),
@@ -1806,7 +1803,8 @@ class _DataScreenState extends State<DataScreen> {
                     height: 10.0,
                   ),
                   Padding(
-                      padding: EdgeInsets.only(bottom: 5.0),
+                    padding: EdgeInsets.only(bottom: 5.0),
+                    child: Flexible(
                       child: CircleAvatar(
                         radius: 32,
                         backgroundColor: Colors.black54,
@@ -1815,7 +1813,9 @@ class _DataScreenState extends State<DataScreen> {
                           backgroundColor: Colors.grey,
                           backgroundImage: AssetImage('images/india.png'),
                         ),
-                      ))
+                      ),
+                    ),
+                  )
                 ],
               ),
               elevation: 4.0,
@@ -1860,9 +1860,6 @@ class _DataScreenState extends State<DataScreen> {
                             ? Colors.pink
                             : Colors.indigoAccent),
                   ),
-                  SizedBox(
-                    height: 10.0,
-                  ),
                   Text(
                     widget.code.ISK,
                     style:
@@ -1874,7 +1871,7 @@ class _DataScreenState extends State<DataScreen> {
                     style: TextStyle(
                       fontFamily: 'Ubuntu',
                       fontWeight: FontWeight.bold,
-                      fontSize: 30.0,
+                      fontSize: 27.0,
                       color: Theme.of(context).accentColor,
                     ),
                   ),
@@ -1882,7 +1879,8 @@ class _DataScreenState extends State<DataScreen> {
                     height: 10.0,
                   ),
                   Padding(
-                      padding: EdgeInsets.only(bottom: 5.0),
+                    padding: EdgeInsets.only(bottom: 5.0),
+                    child: Flexible(
                       child: CircleAvatar(
                         radius: 32,
                         backgroundColor: Colors.black54,
@@ -1891,7 +1889,9 @@ class _DataScreenState extends State<DataScreen> {
                           backgroundColor: Colors.grey,
                           backgroundImage: AssetImage('images/iceland.png'),
                         ),
-                      ))
+                      ),
+                    ),
+                  )
                 ],
               ),
               elevation: 4.0,
@@ -1936,9 +1936,6 @@ class _DataScreenState extends State<DataScreen> {
                             ? Colors.pink
                             : Colors.indigoAccent),
                   ),
-                  SizedBox(
-                    height: 10.0,
-                  ),
                   Text(
                     widget.code.JPY,
                     style:
@@ -1950,7 +1947,7 @@ class _DataScreenState extends State<DataScreen> {
                     style: TextStyle(
                       fontFamily: 'Ubuntu',
                       fontWeight: FontWeight.bold,
-                      fontSize: 30.0,
+                      fontSize: 27.0,
                       color: Theme.of(context).accentColor,
                     ),
                   ),
@@ -1958,7 +1955,8 @@ class _DataScreenState extends State<DataScreen> {
                     height: 10.0,
                   ),
                   Padding(
-                      padding: EdgeInsets.only(bottom: 5.0),
+                    padding: EdgeInsets.only(bottom: 5.0),
+                    child: Flexible(
                       child: CircleAvatar(
                         radius: 32,
                         backgroundColor: Colors.black54,
@@ -1967,7 +1965,9 @@ class _DataScreenState extends State<DataScreen> {
                           backgroundColor: Colors.grey,
                           backgroundImage: AssetImage('images/japan.png'),
                         ),
-                      ))
+                      ),
+                    ),
+                  )
                 ],
               ),
               elevation: 4.0,
@@ -2012,9 +2012,6 @@ class _DataScreenState extends State<DataScreen> {
                             ? Colors.pink
                             : Colors.indigoAccent),
                   ),
-                  SizedBox(
-                    height: 10.0,
-                  ),
                   Text(
                     widget.code.KRW,
                     style:
@@ -2026,12 +2023,13 @@ class _DataScreenState extends State<DataScreen> {
                     style: TextStyle(
                       fontFamily: 'Ubuntu',
                       fontWeight: FontWeight.bold,
-                      fontSize: 30.0,
+                      fontSize: 27.0,
                       color: Theme.of(context).accentColor,
                     ),
                   ),
                   Padding(
-                      padding: EdgeInsets.only(bottom: 10.0),
+                    padding: EdgeInsets.only(bottom: 8.0),
+                    child: Flexible(
                       child: CircleAvatar(
                         radius: 32,
                         backgroundColor: Colors.black54,
@@ -2040,7 +2038,9 @@ class _DataScreenState extends State<DataScreen> {
                           backgroundColor: Colors.grey,
                           backgroundImage: AssetImage('images/northkorea.png'),
                         ),
-                      ))
+                      ),
+                    ),
+                  )
                 ],
               ),
               elevation: 4.0,
@@ -2085,9 +2085,6 @@ class _DataScreenState extends State<DataScreen> {
                             ? Colors.pink
                             : Colors.indigoAccent),
                   ),
-                  SizedBox(
-                    height: 10.0,
-                  ),
                   Text(
                     widget.code.KZT,
                     style:
@@ -2099,7 +2096,7 @@ class _DataScreenState extends State<DataScreen> {
                     style: TextStyle(
                       fontFamily: 'Ubuntu',
                       fontWeight: FontWeight.bold,
-                      fontSize: 30.0,
+                      fontSize: 27.0,
                       color: Theme.of(context).accentColor,
                     ),
                   ),
@@ -2107,7 +2104,8 @@ class _DataScreenState extends State<DataScreen> {
                     height: 10.0,
                   ),
                   Padding(
-                      padding: EdgeInsets.only(bottom: 5.0),
+                    padding: EdgeInsets.only(bottom: 5.0),
+                    child: Flexible(
                       child: CircleAvatar(
                         radius: 32,
                         backgroundColor: Colors.black54,
@@ -2116,7 +2114,9 @@ class _DataScreenState extends State<DataScreen> {
                           backgroundColor: Colors.grey,
                           backgroundImage: AssetImage('images/kazakhstan.png'),
                         ),
-                      ))
+                      ),
+                    ),
+                  )
                 ],
               ),
               elevation: 4.0,
@@ -2161,9 +2161,6 @@ class _DataScreenState extends State<DataScreen> {
                             ? Colors.pink
                             : Colors.indigoAccent),
                   ),
-                  SizedBox(
-                    height: 10.0,
-                  ),
                   Text(
                     widget.code.MVR,
                     style:
@@ -2175,7 +2172,7 @@ class _DataScreenState extends State<DataScreen> {
                     style: TextStyle(
                       fontFamily: 'Ubuntu',
                       fontWeight: FontWeight.bold,
-                      fontSize: 30.0,
+                      fontSize: 27.0,
                       color: Theme.of(context).accentColor,
                     ),
                   ),
@@ -2183,7 +2180,8 @@ class _DataScreenState extends State<DataScreen> {
                     height: 10.0,
                   ),
                   Padding(
-                      padding: EdgeInsets.only(bottom: 5.0),
+                    padding: EdgeInsets.only(bottom: 5.0),
+                    child: Flexible(
                       child: CircleAvatar(
                         radius: 32,
                         backgroundColor: Colors.black54,
@@ -2192,7 +2190,9 @@ class _DataScreenState extends State<DataScreen> {
                           backgroundColor: Colors.grey,
                           backgroundImage: AssetImage('images/maldives.png'),
                         ),
-                      ))
+                      ),
+                    ),
+                  )
                 ],
               ),
               elevation: 4.0,
@@ -2237,9 +2237,6 @@ class _DataScreenState extends State<DataScreen> {
                             ? Colors.pink
                             : Colors.indigoAccent),
                   ),
-                  SizedBox(
-                    height: 10.0,
-                  ),
                   Text(
                     widget.code.MYR,
                     style:
@@ -2251,7 +2248,7 @@ class _DataScreenState extends State<DataScreen> {
                     style: TextStyle(
                       fontFamily: 'Ubuntu',
                       fontWeight: FontWeight.bold,
-                      fontSize: 30.0,
+                      fontSize: 27.0,
                       color: Theme.of(context).accentColor,
                     ),
                   ),
@@ -2259,7 +2256,8 @@ class _DataScreenState extends State<DataScreen> {
                     height: 10.0,
                   ),
                   Padding(
-                      padding: EdgeInsets.only(bottom: 5.0),
+                    padding: EdgeInsets.only(bottom: 5.0),
+                    child: Flexible(
                       child: CircleAvatar(
                         radius: 32,
                         backgroundColor: Colors.black54,
@@ -2268,7 +2266,9 @@ class _DataScreenState extends State<DataScreen> {
                           backgroundColor: Colors.grey,
                           backgroundImage: AssetImage('images/malaysia.png'),
                         ),
-                      ))
+                      ),
+                    ),
+                  )
                 ],
               ),
               elevation: 4.0,
@@ -2313,9 +2313,6 @@ class _DataScreenState extends State<DataScreen> {
                             ? Colors.pink
                             : Colors.indigoAccent),
                   ),
-                  SizedBox(
-                    height: 10.0,
-                  ),
                   Text(
                     widget.code.NOK,
                     style:
@@ -2327,7 +2324,7 @@ class _DataScreenState extends State<DataScreen> {
                     style: TextStyle(
                       fontFamily: 'Ubuntu',
                       fontWeight: FontWeight.bold,
-                      fontSize: 30.0,
+                      fontSize: 27.0,
                       color: Theme.of(context).accentColor,
                     ),
                   ),
@@ -2335,7 +2332,8 @@ class _DataScreenState extends State<DataScreen> {
                     height: 10.0,
                   ),
                   Padding(
-                      padding: EdgeInsets.only(bottom: 5.0),
+                    padding: EdgeInsets.only(bottom: 5.0),
+                    child: Flexible(
                       child: CircleAvatar(
                         radius: 32,
                         backgroundColor: Colors.black54,
@@ -2344,7 +2342,9 @@ class _DataScreenState extends State<DataScreen> {
                           backgroundColor: Colors.grey,
                           backgroundImage: AssetImage('images/norway.png'),
                         ),
-                      ))
+                      ),
+                    ),
+                  )
                 ],
               ),
               elevation: 4.0,
@@ -2389,9 +2389,6 @@ class _DataScreenState extends State<DataScreen> {
                             ? Colors.pink
                             : Colors.indigoAccent),
                   ),
-                  SizedBox(
-                    height: 10.0,
-                  ),
                   Text(
                     widget.code.NZD,
                     style:
@@ -2403,7 +2400,7 @@ class _DataScreenState extends State<DataScreen> {
                     style: TextStyle(
                       fontFamily: 'Ubuntu',
                       fontWeight: FontWeight.bold,
-                      fontSize: 30.0,
+                      fontSize: 27.0,
                       color: Theme.of(context).accentColor,
                     ),
                   ),
@@ -2411,7 +2408,8 @@ class _DataScreenState extends State<DataScreen> {
                     height: 10.0,
                   ),
                   Padding(
-                      padding: EdgeInsets.only(bottom: 5.0),
+                    padding: EdgeInsets.only(bottom: 5.0),
+                    child: Flexible(
                       child: CircleAvatar(
                         radius: 32,
                         backgroundColor: Colors.black54,
@@ -2420,7 +2418,9 @@ class _DataScreenState extends State<DataScreen> {
                           backgroundColor: Colors.grey,
                           backgroundImage: AssetImage('images/newzealand.png'),
                         ),
-                      ))
+                      ),
+                    ),
+                  )
                 ],
               ),
               elevation: 4.0,
@@ -2465,9 +2465,6 @@ class _DataScreenState extends State<DataScreen> {
                             ? Colors.pink
                             : Colors.indigoAccent),
                   ),
-                  SizedBox(
-                    height: 10.0,
-                  ),
                   Text(
                     widget.code.PAB,
                     style:
@@ -2479,7 +2476,7 @@ class _DataScreenState extends State<DataScreen> {
                     style: TextStyle(
                       fontFamily: 'Ubuntu',
                       fontWeight: FontWeight.bold,
-                      fontSize: 30.0,
+                      fontSize: 27.0,
                       color: Theme.of(context).accentColor,
                     ),
                   ),
@@ -2487,7 +2484,8 @@ class _DataScreenState extends State<DataScreen> {
                     height: 10.0,
                   ),
                   Padding(
-                      padding: EdgeInsets.only(bottom: 5.0),
+                    padding: EdgeInsets.only(bottom: 5.0),
+                    child: Flexible(
                       child: CircleAvatar(
                         radius: 32,
                         backgroundColor: Colors.black54,
@@ -2496,7 +2494,9 @@ class _DataScreenState extends State<DataScreen> {
                           backgroundColor: Colors.grey,
                           backgroundImage: AssetImage('images/panama.png'),
                         ),
-                      ))
+                      ),
+                    ),
+                  )
                 ],
               ),
               elevation: 4.0,
@@ -2541,9 +2541,6 @@ class _DataScreenState extends State<DataScreen> {
                             ? Colors.pink
                             : Colors.indigoAccent),
                   ),
-                  SizedBox(
-                    height: 10.0,
-                  ),
                   Text(
                     widget.code.PEN,
                     style:
@@ -2555,7 +2552,7 @@ class _DataScreenState extends State<DataScreen> {
                     style: TextStyle(
                       fontFamily: 'Ubuntu',
                       fontWeight: FontWeight.bold,
-                      fontSize: 30.0,
+                      fontSize: 27.0,
                       color: Theme.of(context).accentColor,
                     ),
                   ),
@@ -2563,7 +2560,8 @@ class _DataScreenState extends State<DataScreen> {
                     height: 10.0,
                   ),
                   Padding(
-                      padding: EdgeInsets.only(bottom: 5.0),
+                    padding: EdgeInsets.only(bottom: 5.0),
+                    child: Flexible(
                       child: CircleAvatar(
                         radius: 32,
                         backgroundColor: Colors.black54,
@@ -2572,7 +2570,9 @@ class _DataScreenState extends State<DataScreen> {
                           backgroundColor: Colors.grey,
                           backgroundImage: AssetImage('images/peru.png'),
                         ),
-                      ))
+                      ),
+                    ),
+                  )
                 ],
               ),
               elevation: 4.0,
@@ -2617,9 +2617,6 @@ class _DataScreenState extends State<DataScreen> {
                             ? Colors.pink
                             : Colors.indigoAccent),
                   ),
-                  SizedBox(
-                    height: 10.0,
-                  ),
                   Text(
                     widget.code.PHP,
                     style:
@@ -2631,7 +2628,7 @@ class _DataScreenState extends State<DataScreen> {
                     style: TextStyle(
                       fontFamily: 'Ubuntu',
                       fontWeight: FontWeight.bold,
-                      fontSize: 30.0,
+                      fontSize: 27.0,
                       color: Theme.of(context).accentColor,
                     ),
                   ),
@@ -2639,7 +2636,8 @@ class _DataScreenState extends State<DataScreen> {
                     height: 10.0,
                   ),
                   Padding(
-                      padding: EdgeInsets.only(bottom: 5.0),
+                    padding: EdgeInsets.only(bottom: 5.0),
+                    child: Flexible(
                       child: CircleAvatar(
                         radius: 32,
                         backgroundColor: Colors.black54,
@@ -2648,7 +2646,9 @@ class _DataScreenState extends State<DataScreen> {
                           backgroundColor: Colors.grey,
                           backgroundImage: AssetImage('images/philippines.png'),
                         ),
-                      ))
+                      ),
+                    ),
+                  )
                 ],
               ),
               elevation: 4.0,
@@ -2693,9 +2693,6 @@ class _DataScreenState extends State<DataScreen> {
                             ? Colors.pink
                             : Colors.indigoAccent),
                   ),
-                  SizedBox(
-                    height: 10.0,
-                  ),
                   Text(
                     widget.code.PKR,
                     style:
@@ -2707,7 +2704,7 @@ class _DataScreenState extends State<DataScreen> {
                     style: TextStyle(
                       fontFamily: 'Ubuntu',
                       fontWeight: FontWeight.bold,
-                      fontSize: 30.0,
+                      fontSize: 27.0,
                       color: Theme.of(context).accentColor,
                     ),
                   ),
@@ -2715,7 +2712,8 @@ class _DataScreenState extends State<DataScreen> {
                     height: 10.0,
                   ),
                   Padding(
-                      padding: EdgeInsets.only(bottom: 5.0),
+                    padding: EdgeInsets.only(bottom: 5.0),
+                    child: Flexible(
                       child: CircleAvatar(
                         radius: 32,
                         backgroundColor: Colors.black54,
@@ -2724,7 +2722,9 @@ class _DataScreenState extends State<DataScreen> {
                           backgroundColor: Colors.grey,
                           backgroundImage: AssetImage('images/pakistan.png'),
                         ),
-                      ))
+                      ),
+                    ),
+                  )
                 ],
               ),
               elevation: 4.0,
@@ -2769,9 +2769,6 @@ class _DataScreenState extends State<DataScreen> {
                             ? Colors.pink
                             : Colors.indigoAccent),
                   ),
-                  SizedBox(
-                    height: 10.0,
-                  ),
                   Text(
                     widget.code.PLN,
                     style:
@@ -2783,7 +2780,7 @@ class _DataScreenState extends State<DataScreen> {
                     style: TextStyle(
                       fontFamily: 'Ubuntu',
                       fontWeight: FontWeight.bold,
-                      fontSize: 30.0,
+                      fontSize: 27.0,
                       color: Theme.of(context).accentColor,
                     ),
                   ),
@@ -2791,7 +2788,8 @@ class _DataScreenState extends State<DataScreen> {
                     height: 10.0,
                   ),
                   Padding(
-                      padding: EdgeInsets.only(bottom: 5.0),
+                    padding: EdgeInsets.only(bottom: 5.0),
+                    child: Flexible(
                       child: CircleAvatar(
                         radius: 32,
                         backgroundColor: Colors.black54,
@@ -2800,7 +2798,9 @@ class _DataScreenState extends State<DataScreen> {
                           backgroundColor: Colors.grey,
                           backgroundImage: AssetImage('images/poland.png'),
                         ),
-                      ))
+                      ),
+                    ),
+                  )
                 ],
               ),
               elevation: 4.0,
@@ -2845,9 +2845,6 @@ class _DataScreenState extends State<DataScreen> {
                             ? Colors.pink
                             : Colors.indigoAccent),
                   ),
-                  SizedBox(
-                    height: 10.0,
-                  ),
                   Text(
                     widget.code.PYG,
                     style:
@@ -2859,7 +2856,7 @@ class _DataScreenState extends State<DataScreen> {
                     style: TextStyle(
                       fontFamily: 'Ubuntu',
                       fontWeight: FontWeight.bold,
-                      fontSize: 30.0,
+                      fontSize: 27.0,
                       color: Theme.of(context).accentColor,
                     ),
                   ),
@@ -2867,7 +2864,8 @@ class _DataScreenState extends State<DataScreen> {
                     height: 10.0,
                   ),
                   Padding(
-                      padding: EdgeInsets.only(bottom: 5.0),
+                    padding: EdgeInsets.only(bottom: 5.0),
+                    child: Flexible(
                       child: CircleAvatar(
                         radius: 32,
                         backgroundColor: Colors.black54,
@@ -2876,7 +2874,9 @@ class _DataScreenState extends State<DataScreen> {
                           backgroundColor: Colors.grey,
                           backgroundImage: AssetImage('images/paraguay.png'),
                         ),
-                      ))
+                      ),
+                    ),
+                  )
                 ],
               ),
               elevation: 4.0,
@@ -2921,9 +2921,6 @@ class _DataScreenState extends State<DataScreen> {
                             ? Colors.pink
                             : Colors.indigoAccent),
                   ),
-                  SizedBox(
-                    height: 10.0,
-                  ),
                   Text(
                     widget.code.SAR,
                     style:
@@ -2934,15 +2931,16 @@ class _DataScreenState extends State<DataScreen> {
                     style: TextStyle(
                       fontFamily: 'Ubuntu',
                       fontWeight: FontWeight.bold,
-                      fontSize: 30.0,
+                      fontSize: 27.0,
                       color: Theme.of(context).accentColor,
                     ),
                   ),
                   SizedBox(
-                    height: 10.0,
+                    height: 7.0,
                   ),
                   Padding(
-                      padding: EdgeInsets.only(bottom: 1.0),
+                    padding: EdgeInsets.only(bottom: 2.0),
+                    child: Flexible(
                       child: CircleAvatar(
                         radius: 32,
                         backgroundColor: Colors.black54,
@@ -2951,7 +2949,9 @@ class _DataScreenState extends State<DataScreen> {
                           backgroundColor: Colors.grey,
                           backgroundImage: AssetImage('images/saudiarabia.png'),
                         ),
-                      ))
+                      ),
+                    ),
+                  )
                 ],
               ),
               elevation: 4.0,
@@ -2996,9 +2996,6 @@ class _DataScreenState extends State<DataScreen> {
                             ? Colors.pink
                             : Colors.indigoAccent),
                   ),
-                  SizedBox(
-                    height: 10.0,
-                  ),
                   Text(
                     widget.code.SEK,
                     style:
@@ -3010,7 +3007,7 @@ class _DataScreenState extends State<DataScreen> {
                     style: TextStyle(
                       fontFamily: 'Ubuntu',
                       fontWeight: FontWeight.bold,
-                      fontSize: 30.0,
+                      fontSize: 27.0,
                       color: Theme.of(context).accentColor,
                     ),
                   ),
@@ -3018,7 +3015,8 @@ class _DataScreenState extends State<DataScreen> {
                     height: 10.0,
                   ),
                   Padding(
-                      padding: EdgeInsets.only(bottom: 5.0),
+                    padding: EdgeInsets.only(bottom: 5.0),
+                    child: Flexible(
                       child: CircleAvatar(
                         radius: 32,
                         backgroundColor: Colors.black54,
@@ -3027,7 +3025,9 @@ class _DataScreenState extends State<DataScreen> {
                           backgroundColor: Colors.grey,
                           backgroundImage: AssetImage('images/sweden.png'),
                         ),
-                      ))
+                      ),
+                    ),
+                  )
                 ],
               ),
               elevation: 4.0,
@@ -3072,9 +3072,6 @@ class _DataScreenState extends State<DataScreen> {
                             ? Colors.pink
                             : Colors.indigoAccent),
                   ),
-                  SizedBox(
-                    height: 10.0,
-                  ),
                   Text(
                     widget.code.SGD,
                     style:
@@ -3086,7 +3083,7 @@ class _DataScreenState extends State<DataScreen> {
                     style: TextStyle(
                       fontFamily: 'Ubuntu',
                       fontWeight: FontWeight.bold,
-                      fontSize: 30.0,
+                      fontSize: 27.0,
                       color: Theme.of(context).accentColor,
                     ),
                   ),
@@ -3094,7 +3091,8 @@ class _DataScreenState extends State<DataScreen> {
                     height: 10.0,
                   ),
                   Padding(
-                      padding: EdgeInsets.only(bottom: 5.0),
+                    padding: EdgeInsets.only(bottom: 5.0),
+                    child: Flexible(
                       child: CircleAvatar(
                         radius: 32,
                         backgroundColor: Colors.black54,
@@ -3103,7 +3101,9 @@ class _DataScreenState extends State<DataScreen> {
                           backgroundColor: Colors.grey,
                           backgroundImage: AssetImage('images/singapore.png'),
                         ),
-                      ))
+                      ),
+                    ),
+                  )
                 ],
               ),
               elevation: 4.0,
@@ -3148,9 +3148,6 @@ class _DataScreenState extends State<DataScreen> {
                             ? Colors.pink
                             : Colors.indigoAccent),
                   ),
-                  SizedBox(
-                    height: 10.0,
-                  ),
                   Text(
                     widget.code.THB,
                     style:
@@ -3162,7 +3159,7 @@ class _DataScreenState extends State<DataScreen> {
                     style: TextStyle(
                       fontFamily: 'Ubuntu',
                       fontWeight: FontWeight.bold,
-                      fontSize: 30.0,
+                      fontSize: 27.0,
                       color: Theme.of(context).accentColor,
                     ),
                   ),
@@ -3170,7 +3167,8 @@ class _DataScreenState extends State<DataScreen> {
                     height: 10.0,
                   ),
                   Padding(
-                      padding: EdgeInsets.only(bottom: 2.0),
+                    padding: EdgeInsets.only(bottom: 2.0),
+                    child: Flexible(
                       child: CircleAvatar(
                         radius: 32,
                         backgroundColor: Colors.black54,
@@ -3179,7 +3177,9 @@ class _DataScreenState extends State<DataScreen> {
                           backgroundColor: Colors.grey,
                           backgroundImage: AssetImage('images/thailand.png'),
                         ),
-                      ))
+                      ),
+                    ),
+                  )
                 ],
               ),
               elevation: 4.0,
@@ -3224,9 +3224,6 @@ class _DataScreenState extends State<DataScreen> {
                             ? Colors.pink
                             : Colors.indigoAccent),
                   ),
-                  SizedBox(
-                    height: 10.0,
-                  ),
                   Text(
                     widget.code.TRY,
                     style:
@@ -3238,7 +3235,7 @@ class _DataScreenState extends State<DataScreen> {
                     style: TextStyle(
                       fontFamily: 'Ubuntu',
                       fontWeight: FontWeight.bold,
-                      fontSize: 30.0,
+                      fontSize: 27.0,
                       color: Theme.of(context).accentColor,
                     ),
                   ),
@@ -3246,7 +3243,8 @@ class _DataScreenState extends State<DataScreen> {
                     height: 10.0,
                   ),
                   Padding(
-                      padding: EdgeInsets.only(bottom: 5.0),
+                    padding: EdgeInsets.only(bottom: 5.0),
+                    child: Flexible(
                       child: CircleAvatar(
                         radius: 32,
                         backgroundColor: Colors.black54,
@@ -3255,7 +3253,9 @@ class _DataScreenState extends State<DataScreen> {
                           backgroundColor: Colors.grey,
                           backgroundImage: AssetImage('images/turkey.png'),
                         ),
-                      ))
+                      ),
+                    ),
+                  )
                 ],
               ),
               elevation: 4.0,
@@ -3300,9 +3300,6 @@ class _DataScreenState extends State<DataScreen> {
                             ? Colors.pink
                             : Colors.indigoAccent),
                   ),
-                  SizedBox(
-                    height: 10.0,
-                  ),
                   Text(
                     widget.code.TWD,
                     style:
@@ -3314,7 +3311,7 @@ class _DataScreenState extends State<DataScreen> {
                     style: TextStyle(
                       fontFamily: 'Ubuntu',
                       fontWeight: FontWeight.bold,
-                      fontSize: 30.0,
+                      fontSize: 27.0,
                       color: Theme.of(context).accentColor,
                     ),
                   ),
@@ -3322,7 +3319,8 @@ class _DataScreenState extends State<DataScreen> {
                     height: 10.0,
                   ),
                   Padding(
-                      padding: EdgeInsets.only(bottom: 5.0),
+                    padding: EdgeInsets.only(bottom: 5.0),
+                    child: Flexible(
                       child: CircleAvatar(
                         radius: 32,
                         backgroundColor: Colors.black54,
@@ -3331,7 +3329,9 @@ class _DataScreenState extends State<DataScreen> {
                           backgroundColor: Colors.grey,
                           backgroundImage: AssetImage('images/taiwan.png'),
                         ),
-                      ))
+                      ),
+                    ),
+                  )
                 ],
               ),
               elevation: 4.0,
@@ -3376,9 +3376,6 @@ class _DataScreenState extends State<DataScreen> {
                             ? Colors.pink
                             : Colors.indigoAccent),
                   ),
-                  SizedBox(
-                    height: 10.0,
-                  ),
                   Text(
                     widget.code.UAH,
                     style:
@@ -3390,7 +3387,7 @@ class _DataScreenState extends State<DataScreen> {
                     style: TextStyle(
                       fontFamily: 'Ubuntu',
                       fontWeight: FontWeight.bold,
-                      fontSize: 30.0,
+                      fontSize: 27.0,
                       color: Theme.of(context).accentColor,
                     ),
                   ),
@@ -3398,7 +3395,8 @@ class _DataScreenState extends State<DataScreen> {
                     height: 10.0,
                   ),
                   Padding(
-                      padding: EdgeInsets.only(bottom: 5.0),
+                    padding: EdgeInsets.only(bottom: 5.0),
+                    child: Flexible(
                       child: CircleAvatar(
                         radius: 32,
                         backgroundColor: Colors.black54,
@@ -3407,7 +3405,9 @@ class _DataScreenState extends State<DataScreen> {
                           backgroundColor: Colors.grey,
                           backgroundImage: AssetImage('images/ukraine.png'),
                         ),
-                      ))
+                      ),
+                    ),
+                  )
                 ],
               ),
               elevation: 4.0,
@@ -3452,9 +3452,6 @@ class _DataScreenState extends State<DataScreen> {
                             ? Colors.pink
                             : Colors.indigoAccent),
                   ),
-                  SizedBox(
-                    height: 10.0,
-                  ),
                   Text(
                     widget.code.USD,
                     style:
@@ -3466,7 +3463,7 @@ class _DataScreenState extends State<DataScreen> {
                     style: TextStyle(
                       fontFamily: 'Ubuntu',
                       fontWeight: FontWeight.bold,
-                      fontSize: 30.0,
+                      fontSize: 27.0,
                       color: Theme.of(context).accentColor,
                     ),
                   ),
@@ -3474,7 +3471,8 @@ class _DataScreenState extends State<DataScreen> {
                     height: 10.0,
                   ),
                   Padding(
-                      padding: EdgeInsets.only(bottom: 5.0),
+                    padding: EdgeInsets.only(bottom: 5.0),
+                    child: Flexible(
                       child: CircleAvatar(
                         radius: 32,
                         backgroundColor: Colors.black54,
@@ -3483,7 +3481,9 @@ class _DataScreenState extends State<DataScreen> {
                           backgroundColor: Colors.grey,
                           backgroundImage: AssetImage('images/usa.png'),
                         ),
-                      ))
+                      ),
+                    ),
+                  )
                 ],
               ),
               elevation: 4.0,
@@ -3528,9 +3528,6 @@ class _DataScreenState extends State<DataScreen> {
                             ? Colors.pink
                             : Colors.indigoAccent),
                   ),
-                  SizedBox(
-                    height: 10.0,
-                  ),
                   Text(
                     widget.code.UYU,
                     style:
@@ -3542,7 +3539,7 @@ class _DataScreenState extends State<DataScreen> {
                     style: TextStyle(
                       fontFamily: 'Ubuntu',
                       fontWeight: FontWeight.bold,
-                      fontSize: 30.0,
+                      fontSize: 27.0,
                       color: Theme.of(context).accentColor,
                     ),
                   ),
@@ -3550,7 +3547,8 @@ class _DataScreenState extends State<DataScreen> {
                     height: 10.0,
                   ),
                   Padding(
-                      padding: EdgeInsets.only(bottom: 5.0),
+                    padding: EdgeInsets.only(bottom: 5.0),
+                    child: Flexible(
                       child: CircleAvatar(
                         radius: 32,
                         backgroundColor: Colors.black54,
@@ -3559,7 +3557,9 @@ class _DataScreenState extends State<DataScreen> {
                           backgroundColor: Colors.grey,
                           backgroundImage: AssetImage('images/uruguay.png'),
                         ),
-                      ))
+                      ),
+                    ),
+                  )
                 ],
               ),
               elevation: 4.0,
@@ -3604,9 +3604,6 @@ class _DataScreenState extends State<DataScreen> {
                             ? Colors.pink
                             : Colors.indigoAccent),
                   ),
-                  SizedBox(
-                    height: 10.0,
-                  ),
                   Text(
                     widget.code.ZAR,
                     style:
@@ -3618,7 +3615,7 @@ class _DataScreenState extends State<DataScreen> {
                     style: TextStyle(
                       fontFamily: 'Ubuntu',
                       fontWeight: FontWeight.bold,
-                      fontSize: 30.0,
+                      fontSize: 27.0,
                       color: Theme.of(context).accentColor,
                     ),
                   ),
@@ -3626,7 +3623,8 @@ class _DataScreenState extends State<DataScreen> {
                     height: 10.0,
                   ),
                   Padding(
-                      padding: EdgeInsets.only(bottom: 5.0),
+                    padding: EdgeInsets.only(bottom: 5.0),
+                    child: Flexible(
                       child: CircleAvatar(
                         radius: 32,
                         backgroundColor: Colors.black54,
@@ -3635,7 +3633,9 @@ class _DataScreenState extends State<DataScreen> {
                           backgroundColor: Colors.grey,
                           backgroundImage: AssetImage('images/southafrica.png'),
                         ),
-                      ))
+                      ),
+                    ),
+                  )
                 ],
               ),
               elevation: 4.0,

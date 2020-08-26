@@ -6,14 +6,21 @@ const sharedPrefName = 'DarkMode';
 class ThemeManager extends ChangeNotifier {
   bool _themeStatus;
   SharedPreferences pref;
+  int x = 0;
 
   get themeInfo => _themeStatus;
 
   ThemeManager() {
-    _themeStatus = true;
-    _getSharedpref();
+    if (x == 0) {
+      _themeStatus = true;
+      x++;
+    } else {
+      _themeStatus = true;
+      _getSharedpref();
+    }
     notifyListeners();
   }
+
   void themeToggeler() {
     _themeStatus = !_themeStatus;
     _setSharedPref();
