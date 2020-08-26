@@ -21,6 +21,8 @@ dependencies:
   shimmer: ^1.1.1
   provider: ^4.3.2 
   shared_preferences: ^0.5.8
+  autocomplete_textfield: ^1.7.3
+  toast: ^0.1.5
 
 dev_dependencies:
   flutter_test:
@@ -37,6 +39,8 @@ flutter:
     - family: Srisakdi
       fonts:
         - asset: fonts/Srisakdi-Regular.ttf
-    
+    - family: Lato
+      fonts:
+        - asset: fonts/Lato-Regular.ttf
   assets:
-    - images/exchnageapp.png
+    - images/

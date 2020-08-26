@@ -1,3 +1,6 @@
+import 'package:autocomplete_textfield/autocomplete_textfield.dart';
+import 'package:toast/toast.dart';
+import 'package:exchangeapp/main.dart';
 import 'package:exchangeapp/widgets/datascreen.dart';
 import 'package:exchangeapp/thememanager/darkmode.dart';
 import 'package:exchangeapp/model/currencymodel.dart';
@@ -18,7 +21,7 @@ class _MyHomePageState extends State<MyHomePage> {
   bool isSearch = false;
   bool hideSearch = true;
   bool _isData = false;
-  final _scrollController = ScrollController();
+  final textFieldKey = GlobalKey<AutoCompleteTextFieldState>();
   final scaffKey = GlobalKey<ScaffoldState>();
   String codevalue = "USD";
 
@@ -74,7 +77,7 @@ class _MyHomePageState extends State<MyHomePage> {
         floatingActionButton: Align(
           alignment: Alignment.bottomCenter,
           child: FloatingActionButton(
-            backgroundColor: data.themeInfo?Colors.pink:Colors.indigoAccent,
+            backgroundColor: data.themeInfo ? Colors.pink : Colors.indigoAccent,
             shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(20.0)),
             onPressed: () {
@@ -100,17 +103,36 @@ class _MyHomePageState extends State<MyHomePage> {
         ),
         appBar: AppBar(
           title: isSearch
-              ? TextField(
-                  textCapitalization: TextCapitalization.characters,
+              ? AutoCompleteTextField(
+                  key: textFieldKey,
+                  clearOnSubmit: false,
+                  suggestions: suggestions,
                   controller: _textController,
+                  itemFilter: (item, query) {
+                    return item.toLowerCase().startsWith(query.toLowerCase());
+                  },
+                  itemSorter: (a, b) {
+                    return a.compareTo(b);
+                  },
+                  itemBuilder: (context, suggestions) {
+                    return ListTile(
+                      title: Text(suggestions),
+                    );
+                  },
+                  itemSubmitted: (suggestions) {
+                    setState(() {
+                      _textController.text = suggestions;
+                    });
+                  },
                   decoration: InputDecoration(
-                      suffixIcon: IconButton(
-                        icon: Icon(
-                          Icons.send,
-                          color: Theme.of(context).accentColor,
-                        ),
-                        onPressed: () {
-                          if (_textController.text.isNotEmpty) {
+                    suffixIcon: IconButton(
+                      icon: Icon(
+                        Icons.send,
+                        color: Theme.of(context).accentColor,
+                      ),
+                      onPressed: () {
+                        if (_textController.text.isNotEmpty) {
+                          if (availableCode.contains(_textController.text)) {
                             getSpecificData(_textController.text);
                             _textController.clear();
                             setState(
@@ -120,25 +142,33 @@ class _MyHomePageState extends State<MyHomePage> {
                               },
                             );
                           } else {
-                            setState(() {
-                              isSearch = false;
-                              hideSearch = true;
-                            });
+                            Toast.show('Code is not available', context,
+                                gravity: Toast.BOTTOM,
+                                duration: Toast.LENGTH_LONG,
+                                backgroundColor: Colors.black87,
+                                textColor: Colors.white70);
                           }
-                        },
-                      ),
-                      prefixIcon: IconButton(
-                        icon: Icon(Icons.clear),
-                        onPressed: () {
+                        } else {
                           setState(() {
                             isSearch = false;
                             hideSearch = true;
                           });
-                        },
-                      ),
-                      hintText: 'Curreny Code (except USD)',
-                      fillColor: data.themeInfo ? Colors.black54 : Colors.white,
-                      filled: true),
+                        }
+                      },
+                    ),
+                    prefixIcon: IconButton(
+                      icon: Icon(Icons.clear),
+                      onPressed: () {
+                        setState(() {
+                          isSearch = false;
+                          hideSearch = true;
+                        });
+                      },
+                    ),
+                    hintText: 'Curreny Code',
+                    fillColor: data.themeInfo ? Colors.black54 : Colors.white,
+                    filled: true,
+                  ),
                 )
               : Text(
                   'Exchange Rates',
@@ -194,7 +224,7 @@ class _MyHomePageState extends State<MyHomePage> {
             ],
           ),
         ),
-        body: _isData ? DataScreen(currency, data) : ShimEffect(),
+        body: _isData ? DataScreen(currency, data,codevalue) : ShimEffect(),
       ),
     );
   }

@@ -3,6 +3,7 @@ import 'dart:convert' as json;
 import '../model/currencymodel.dart';
 
 class NetworksAPI {
+  // ignore: missing_return
   Future<CurrencyModel> getAPIData(String code) async {
     http.Response response = await http.get(
         'https://v6.exchangerate-api.com/v6/e7e5cddb52028d5f1244da3c/latest/$code');
@@ -63,7 +64,7 @@ class NetworksAPI {
           ZAR: convertData['ZAR'].toString(),
         );
         return currObj;
-      }
+      } 
     }
   }
 
