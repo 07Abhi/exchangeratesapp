@@ -70,7 +70,7 @@ class NetworksAPI {
 
   Future saveInCache() async {
     http.Response response = await http.get(
-        'https://v6.exchangerate-api.com/v6/e7e5cddb52028d5f1244da3c/latest/USD');
+        'https://v6.exchangerate-api.com/v6/e7e5cddb52028d5f1244da3c/latest/INR');
     if (response.statusCode == 200) {
       return response.body;
     } else {

@@ -23,6 +23,7 @@ dependencies:
   shared_preferences: ^0.5.8
   autocomplete_textfield: ^1.7.3
   toast: ^0.1.5
+  flutter_spinkit: ^4.1.2+1
 
 dev_dependencies:
   flutter_test:

@@ -14,6 +14,87 @@ class DataScreen extends StatefulWidget {
 }
 
 class _DataScreenState extends State<DataScreen> {
+  Widget currecnyTitle(String code) {
+    return Expanded(
+      flex: 1,
+      child: Text(
+        code,
+        style: TextStyle(
+          fontSize: 23.0,
+          fontWeight: FontWeight.bold,
+          color: Theme.of(context).accentColor,
+        ),
+      ),
+    );
+  }
+
+  Widget currencyValue(String value) {
+    return Expanded(
+      flex: 1,
+      child: Text(
+        value,
+        style: TextStyle(
+            fontFamily: 'Ubuntu',
+            fontWeight: FontWeight.bold,
+            fontSize: 20.0,
+            color: widget.data.themeInfo ? Colors.pink : Colors.indigoAccent),
+      ),
+    );
+  }
+
+  Widget currencySymbol(String symbol) {
+    return Expanded(
+      flex: 1,
+      child: Text(
+        symbol,
+        style: TextStyle(
+          fontFamily: 'Ubuntu',
+          fontWeight: FontWeight.bold,
+          fontSize: 25.0,
+          color: Theme.of(context).accentColor,
+        ),
+      ),
+    );
+  }
+
+  Widget currencyFlag(String assetimage) {
+    return Expanded(
+      flex: 2,
+      child: CircleAvatar(
+        radius: 32,
+        backgroundColor: Colors.black54,
+        child: CircleAvatar(
+          radius: 30.0,
+          backgroundColor: Colors.grey,
+          backgroundImage: AssetImage(assetimage),
+        ),
+      ),
+    );
+  }
+
+  void displayRate(String base, String data, String currencycode) {
+    showDialog(
+      context: context,
+      builder: (context) => SimpleDialog(
+        title: Text(
+          'Rate Exchange',
+          textAlign: TextAlign.center,
+        ),
+        children: [
+          Text(
+            '1 $base = $data $currencycode',
+            textAlign: TextAlign.center,
+            style: TextStyle(
+              fontSize: 20.0,
+              color: Theme.of(context).accentColor,
+              fontWeight: FontWeight.bold,
+            ),
+          )
+        ],
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return GridView(
@@ -23,3645 +104,971 @@ class _DataScreenState extends State<DataScreen> {
         crossAxisSpacing: 10.0,
       ),
       children: [
-        GestureDetector(
+        
+       GestureDetector(
           child: GridTile(
             child: Card(
+              margin: EdgeInsets.symmetric(horizontal: 5.0),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
-                  Text(
-                    'AED',
-                    style: TextStyle(
-                        fontFamily: 'Ubuntu',
-                        fontWeight: FontWeight.bold,
-                        fontSize: 20.0,
-                        color: widget.data.themeInfo
-                            ? Colors.pink
-                            : Colors.indigoAccent),
-                  ),
-                  Text(
-                    widget.code.AED,
-                    style:
-                        TextStyle(fontWeight: FontWeight.bold, fontSize: 20.0),
-                  ),
-                  Text(
-                    'د.إ',
-                    style: TextStyle(
-                      fontFamily: 'Ubuntu',
-                      fontWeight: FontWeight.bold,
-                      fontSize: 27.0,
-                      color: Theme.of(context).accentColor,
-                    ),
-                  ),
-                  Padding(
-                    padding: EdgeInsets.only(bottom: 5.0),
-                    child: Flexible(
-                      child: CircleAvatar(
-                        radius: 32,
-                        backgroundColor: Colors.black54,
-                        child: CircleAvatar(
-                          radius: 30.0,
-                          backgroundColor: Colors.grey,
-                          backgroundImage: AssetImage('images/uae.png'),
-                        ),
-                      ),
-                    ),
-                  )
+                  currecnyTitle('AED'),
+                  currencyValue(widget.code.AED),
+                  currencySymbol('د.إ'),
+                  currencyFlag('images/uae.png'),
                 ],
               ),
               elevation: 4.0,
             ),
           ),
           onTap: () {
-            showDialog(
-              context: context,
-              builder: (context) => SimpleDialog(
-                title: Text(
-                  'Rate Exchange',
-                  textAlign: TextAlign.center,
-                ),
+            displayRate(widget.currenyCode, widget.code.AED, 'AED');
+          },
+        ),   
+        GestureDetector(
+          child: GridTile(
+            child: Card(
+              margin: EdgeInsets.symmetric(horizontal: 5.0),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.end,
                 children: [
-                  Text(
-                    '1 ${widget.currenyCode} = ${widget.code.AED} AED',
-                    textAlign: TextAlign.center,
-                    style: TextStyle(
-                      fontSize: 20.0,
-                      color: Theme.of(context).accentColor,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  )
+                  currecnyTitle('ARS'),
+                  currencyValue(widget.code.ARS),
+                  currencySymbol('\$'),
+                  currencyFlag('images/argentina.png'),
                 ],
               ),
-            );
+              elevation: 4.0,
+            ),
+          ),
+          onTap: () {
+            displayRate(widget.currenyCode, widget.code.ARS, 'ARS');
+          },
+        ),   
+        GestureDetector(
+          child: GridTile(
+            child: Card(
+              margin: EdgeInsets.symmetric(horizontal: 5.0),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: [
+                  currecnyTitle('AUD'),
+                  currencyValue(widget.code.AUD),
+                  currencySymbol('\$'),
+                  currencyFlag('images/australia.png'),
+                ],
+              ),
+              elevation: 4.0,
+            ),
+          ),
+          onTap: () {
+            displayRate(widget.currenyCode, widget.code.AUD, 'AUD');
+          },
+        ),   
+        GestureDetector(
+          child: GridTile(
+            child: Card(
+              margin: EdgeInsets.symmetric(horizontal: 5.0),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: [
+                  currecnyTitle('BGN'),
+                  currencyValue(widget.code.BGN),
+                  currencySymbol('лв'),
+                  currencyFlag('images/bulgaria.png'),
+                ],
+              ),
+              elevation: 4.0,
+            ),
+          ),
+          onTap: () {
+            displayRate(widget.currenyCode, widget.code.BGN, 'BGN');
+          },
+        ),   
+
+        GestureDetector(
+          child: GridTile(
+            child: Card(
+              margin: EdgeInsets.symmetric(horizontal: 5.0),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: [
+                  currecnyTitle('BRL'),
+                  currencyValue(widget.code.BRL),
+                  currencySymbol('R\$'),
+                  currencyFlag('images/brazil.png'),
+                ],
+              ),
+              elevation: 4.0,
+            ),
+          ),
+          onTap: () {
+            displayRate(widget.currenyCode, widget.code.BRL, 'BRL');
           },
         ),
         GestureDetector(
           child: GridTile(
             child: Card(
+              margin: EdgeInsets.symmetric(horizontal: 5.0),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
-                  Text(
-                    'ARS',
-                    style: TextStyle(
-                        fontFamily: 'Ubuntu',
-                        fontWeight: FontWeight.bold,
-                        fontSize: 20.0,
-                        color: widget.data.themeInfo
-                            ? Colors.pink
-                            : Colors.indigoAccent),
-                  ),
-                  Text(
-                    widget.code.ARS,
-                    style:
-                        TextStyle(fontWeight: FontWeight.bold, fontSize: 20.0),
-                  ),
-                  SizedBox(height: 10.0),
-                  Text(
-                    '	\$',
-                    style: TextStyle(
-                      fontFamily: 'Ubuntu',
-                      fontWeight: FontWeight.bold,
-                      fontSize: 27.0,
-                      color: Theme.of(context).accentColor,
-                    ),
-                  ),
-                  SizedBox(
-                    height: 10.0,
-                  ),
-                  Padding(
-                    padding: EdgeInsets.only(bottom: 5.0),
-                    child: Flexible(
-                      child: CircleAvatar(
-                        radius: 32,
-                        backgroundColor: Colors.black54,
-                        child: CircleAvatar(
-                          radius: 30.0,
-                          backgroundColor: Colors.grey,
-                          backgroundImage: AssetImage('images/argentina.png'),
-                        ),
-                      ),
-                    ),
-                  )
+                  currecnyTitle('BSD'),
+                  currencyValue(widget.code.BSD),
+                  currencySymbol('\$'),
+                  currencyFlag('images/bahamas.png'),
                 ],
               ),
               elevation: 4.0,
             ),
           ),
           onTap: () {
-            showDialog(
-              context: context,
-              builder: (context) => SimpleDialog(
-                title: Text(
-                  'Rate Exchange',
-                  textAlign: TextAlign.center,
-                ),
-                children: [
-                  Text(
-                    '1 ${widget.currenyCode} = ${widget.code.AED} ARS',
-                    textAlign: TextAlign.center,
-                    style: TextStyle(
-                      fontSize: 20.0,
-                      color: Theme.of(context).accentColor,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  )
-                ],
-              ),
-            );
+            displayRate(widget.currenyCode, widget.code.BSD, 'BSD');
           },
         ),
         GestureDetector(
           child: GridTile(
             child: Card(
+              margin: EdgeInsets.symmetric(horizontal: 5.0),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
-                  Text(
-                    'AUD',
-                    style: TextStyle(
-                        fontFamily: 'Ubuntu',
-                        fontWeight: FontWeight.bold,
-                        fontSize: 20.0,
-                        color: widget.data.themeInfo
-                            ? Colors.pink
-                            : Colors.indigoAccent),
-                  ),
-                  Text(
-                    widget.code.AUD,
-                    style:
-                        TextStyle(fontWeight: FontWeight.bold, fontSize: 20.0),
-                  ),
-                  SizedBox(height: 10.0),
-                  Text(
-                    '\$',
-                    style: TextStyle(
-                      fontFamily: 'Ubuntu',
-                      fontWeight: FontWeight.bold,
-                      fontSize: 27.0,
-                      color: Theme.of(context).accentColor,
-                    ),
-                  ),
-                  SizedBox(
-                    height: 10.0,
-                  ),
-                  Padding(
-                    padding: EdgeInsets.only(bottom: 5.0),
-                    child: Flexible(
-                      child: CircleAvatar(
-                        radius: 32,
-                        backgroundColor: Colors.black54,
-                        child: CircleAvatar(
-                          radius: 30.0,
-                          backgroundColor: Colors.grey,
-                          backgroundImage: AssetImage('images/australia.png'),
-                        ),
-                      ),
-                    ),
-                  )
+                  currecnyTitle('CHF'),
+                  currencyValue(widget.code.CHF),
+                  currencySymbol('\$'),
+                  currencyFlag('images/switzerland.png'),
                 ],
               ),
               elevation: 4.0,
             ),
           ),
           onTap: () {
-            showDialog(
-              context: context,
-              builder: (context) => SimpleDialog(
-                title: Text(
-                  'Rate Exchange',
-                  textAlign: TextAlign.center,
-                ),
-                children: [
-                  Text(
-                    '1 ${widget.currenyCode} = ${widget.code.AED} AUD',
-                    textAlign: TextAlign.center,
-                    style: TextStyle(
-                      fontSize: 20.0,
-                      color: Theme.of(context).accentColor,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  )
-                ],
-              ),
-            );
+            displayRate(widget.currenyCode, widget.code.CHF, 'CHF');
           },
         ),
         GestureDetector(
           child: GridTile(
             child: Card(
+              margin: EdgeInsets.symmetric(horizontal: 5.0),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
-                  Text(
-                    'BGN',
-                    style: TextStyle(
-                        fontFamily: 'Ubuntu',
-                        fontWeight: FontWeight.bold,
-                        fontSize: 20.0,
-                        color: widget.data.themeInfo
-                            ? Colors.pink
-                            : Colors.indigoAccent),
-                  ),
-                  Text(
-                    widget.code.BGN,
-                    style:
-                        TextStyle(fontWeight: FontWeight.bold, fontSize: 20.0),
-                  ),
-                  SizedBox(height: 10.0),
-                  Text(
-                    'лв',
-                    style: TextStyle(
-                      fontFamily: 'Ubuntu',
-                      fontWeight: FontWeight.bold,
-                      fontSize: 27.0,
-                      color: Theme.of(context).accentColor,
-                    ),
-                  ),
-                  SizedBox(
-                    height: 10.0,
-                  ),
-                  Padding(
-                    padding: EdgeInsets.only(bottom: 5.0),
-                    child: Flexible(
-                      child: CircleAvatar(
-                        radius: 32,
-                        backgroundColor: Colors.black54,
-                        child: CircleAvatar(
-                          radius: 30.0,
-                          backgroundColor: Colors.grey,
-                          backgroundImage: AssetImage('images/bulgaria.png'),
-                        ),
-                      ),
-                    ),
-                  )
+                  currecnyTitle('CLP'),
+                  currencyValue(widget.code.CLP),
+                  currencySymbol('\$'),
+                  currencyFlag('images/chile.png'),
                 ],
               ),
               elevation: 4.0,
             ),
           ),
           onTap: () {
-            showDialog(
-              context: context,
-              builder: (context) => SimpleDialog(
-                title: Text(
-                  'Rate Exchange',
-                  textAlign: TextAlign.center,
-                ),
-                children: [
-                  Text(
-                    '1 ${widget.currenyCode} = ${widget.code.AED} BGN',
-                    textAlign: TextAlign.center,
-                    style: TextStyle(
-                      fontSize: 20.0,
-                      color: Theme.of(context).accentColor,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  )
-                ],
-              ),
-            );
+            displayRate(widget.currenyCode, widget.code.CLP, 'CLP');
           },
         ),
         GestureDetector(
           child: GridTile(
             child: Card(
+              margin: EdgeInsets.symmetric(horizontal: 5.0),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
-                  Text(
-                    'BRL',
-                    style: TextStyle(
-                        fontFamily: 'Ubuntu',
-                        fontWeight: FontWeight.bold,
-                        fontSize: 20.0,
-                        color: widget.data.themeInfo
-                            ? Colors.pink
-                            : Colors.indigoAccent),
-                  ),
-                  Text(
-                    widget.code.BRL,
-                    style:
-                        TextStyle(fontWeight: FontWeight.bold, fontSize: 20.0),
-                  ),
-                  SizedBox(height: 10.0),
-                  Text(
-                    '	R\$',
-                    style: TextStyle(
-                      fontFamily: 'Ubuntu',
-                      fontWeight: FontWeight.bold,
-                      fontSize: 27.0,
-                      color: Theme.of(context).accentColor,
-                    ),
-                  ),
-                  SizedBox(
-                    height: 10.0,
-                  ),
-                  Padding(
-                    padding: EdgeInsets.only(bottom: 5.0),
-                    child: Flexible(
-                      child: CircleAvatar(
-                        radius: 32,
-                        backgroundColor: Colors.black54,
-                        child: CircleAvatar(
-                          radius: 30.0,
-                          backgroundColor: Colors.grey,
-                          backgroundImage: AssetImage('images/brazil.png'),
-                        ),
-                      ),
-                    ),
-                  )
+                  currecnyTitle('CNY'),
+                  currencyValue(widget.code.CNY),
+                  currencySymbol('¥'),
+                  currencyFlag('images/china.png'),
                 ],
               ),
               elevation: 4.0,
             ),
           ),
           onTap: () {
-            showDialog(
-              context: context,
-              builder: (context) => SimpleDialog(
-                title: Text(
-                  'Rate Exchange',
-                  textAlign: TextAlign.center,
-                ),
-                children: [
-                  Text(
-                    '1 ${widget.currenyCode} = ${widget.code.AED} BRL',
-                    textAlign: TextAlign.center,
-                    style: TextStyle(
-                      fontSize: 20.0,
-                      color: Theme.of(context).accentColor,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  )
-                ],
-              ),
-            );
+            displayRate(widget.currenyCode, widget.code.CNY, 'CNY');
           },
         ),
         GestureDetector(
           child: GridTile(
             child: Card(
+              margin: EdgeInsets.symmetric(horizontal: 5.0),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
-                  Text(
-                    'BSD',
-                    style: TextStyle(
-                        fontFamily: 'Ubuntu',
-                        fontWeight: FontWeight.bold,
-                        fontSize: 20.0,
-                        color: widget.data.themeInfo
-                            ? Colors.pink
-                            : Colors.indigoAccent),
-                  ),
-                  Text(
-                    widget.code.BSD,
-                    style:
-                        TextStyle(fontWeight: FontWeight.bold, fontSize: 20.0),
-                  ),
-                  SizedBox(height: 10.0),
-                  Text(
-                    '\$',
-                    style: TextStyle(
-                      fontFamily: 'Ubuntu',
-                      fontWeight: FontWeight.bold,
-                      fontSize: 27.0,
-                      color: Theme.of(context).accentColor,
-                    ),
-                  ),
-                  SizedBox(
-                    height: 10.0,
-                  ),
-                  Padding(
-                    padding: EdgeInsets.only(bottom: 5.0),
-                    child: Flexible(
-                      child: CircleAvatar(
-                        radius: 32,
-                        backgroundColor: Colors.black54,
-                        child: CircleAvatar(
-                          radius: 30.0,
-                          backgroundColor: Colors.grey,
-                          backgroundImage: AssetImage('images/bahamas.png'),
-                        ),
-                      ),
-                    ),
-                  )
+                  currecnyTitle('COP'),
+                  currencyValue(widget.code.COP),
+                  currencySymbol('Kč'),
+                  currencyFlag('images/colombia.png'),
                 ],
               ),
               elevation: 4.0,
             ),
           ),
           onTap: () {
-            showDialog(
-              context: context,
-              builder: (context) => SimpleDialog(
-                title: Text(
-                  'Rate Exchange',
-                  textAlign: TextAlign.center,
-                ),
-                children: [
-                  Text(
-                    '1 ${widget.currenyCode} = ${widget.code.AED} BSD',
-                    textAlign: TextAlign.center,
-                    style: TextStyle(
-                      fontSize: 20.0,
-                      color: Theme.of(context).accentColor,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  )
-                ],
-              ),
-            );
+            displayRate(widget.currenyCode, widget.code.COP, 'COP');
           },
         ),
         GestureDetector(
           child: GridTile(
             child: Card(
+              margin: EdgeInsets.symmetric(horizontal: 5.0),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
-                  Text(
-                    'CHF',
-                    style: TextStyle(
-                        fontFamily: 'Ubuntu',
-                        fontWeight: FontWeight.bold,
-                        fontSize: 20.0,
-                        color: widget.data.themeInfo
-                            ? Colors.pink
-                            : Colors.indigoAccent),
-                  ),
-                  Text(
-                    widget.code.CHF,
-                    style:
-                        TextStyle(fontWeight: FontWeight.bold, fontSize: 20.0),
-                  ),
-                  SizedBox(height: 10.0),
-                  Text(
-                    '€',
-                    style: TextStyle(
-                      fontFamily: 'Ubuntu',
-                      fontWeight: FontWeight.bold,
-                      fontSize: 27.0,
-                      color: Theme.of(context).accentColor,
-                    ),
-                  ),
-                  SizedBox(
-                    height: 10.0,
-                  ),
-                  Padding(
-                    padding: EdgeInsets.only(bottom: 5.0),
-                    child: Flexible(
-                      child: CircleAvatar(
-                        radius: 32,
-                        backgroundColor: Colors.black54,
-                        child: CircleAvatar(
-                          radius: 30.0,
-                          backgroundColor: Colors.grey,
-                          backgroundImage: AssetImage('images/switzerland.png'),
-                        ),
-                      ),
-                    ),
-                  ),
+                  currecnyTitle('CZK'),
+                  currencyValue(widget.code.CZK),
+                  currencySymbol('Kč'),
+                  currencyFlag('images/czechrepublic.png'),
                 ],
               ),
               elevation: 4.0,
             ),
           ),
           onTap: () {
-            showDialog(
-              context: context,
-              builder: (context) => SimpleDialog(
-                title: Text(
-                  'Rate Exchange',
-                  textAlign: TextAlign.center,
-                ),
-                children: [
-                  Text(
-                    '1 ${widget.currenyCode} = ${widget.code.AED} CHF',
-                    textAlign: TextAlign.center,
-                    style: TextStyle(
-                      fontSize: 20.0,
-                      color: Theme.of(context).accentColor,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  )
-                ],
-              ),
-            );
+            displayRate(widget.currenyCode, widget.code.CZK, 'CZK');
           },
         ),
         GestureDetector(
           child: GridTile(
             child: Card(
+              margin: EdgeInsets.symmetric(horizontal: 5.0),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
-                  Text(
-                    'CLP',
-                    style: TextStyle(
-                        fontFamily: 'Ubuntu',
-                        fontWeight: FontWeight.bold,
-                        fontSize: 20.0,
-                        color: widget.data.themeInfo
-                            ? Colors.pink
-                            : Colors.indigoAccent),
-                  ),
-                  Text(
-                    widget.code.CLP,
-                    style:
-                        TextStyle(fontWeight: FontWeight.bold, fontSize: 20.0),
-                  ),
-                  SizedBox(height: 10.0),
-                  Text(
-                    '\$',
-                    style: TextStyle(
-                      fontFamily: 'Ubuntu',
-                      fontWeight: FontWeight.bold,
-                      fontSize: 27.0,
-                      color: Theme.of(context).accentColor,
-                    ),
-                  ),
-                  SizedBox(
-                    height: 10.0,
-                  ),
-                  Padding(
-                    padding: EdgeInsets.only(bottom: 5.0),
-                    child: Flexible(
-                      child: CircleAvatar(
-                        radius: 32,
-                        backgroundColor: Colors.black54,
-                        child: CircleAvatar(
-                          radius: 30.0,
-                          backgroundColor: Colors.grey,
-                          backgroundImage: AssetImage('images/chile.png'),
-                        ),
-                      ),
-                    ),
-                  )
+                  currecnyTitle('DKK'),
+                  currencyValue(widget.code.DKK),
+                  currencySymbol('Kr.'),
+                  currencyFlag('images/denmark.png'),
                 ],
               ),
               elevation: 4.0,
             ),
           ),
           onTap: () {
-            showDialog(
-              context: context,
-              builder: (context) => SimpleDialog(
-                title: Text(
-                  'Rate Exchange',
-                  textAlign: TextAlign.center,
-                ),
-                children: [
-                  Text(
-                    '1 ${widget.currenyCode} = ${widget.code.AED} CLP',
-                    textAlign: TextAlign.center,
-                    style: TextStyle(
-                      fontSize: 20.0,
-                      color: Theme.of(context).accentColor,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  )
-                ],
-              ),
-            );
+            displayRate(widget.currenyCode, widget.code.DKK, 'DKK');
           },
         ),
         GestureDetector(
           child: GridTile(
             child: Card(
+              margin: EdgeInsets.symmetric(horizontal: 5.0),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
-                  Text(
-                    'CNY',
-                    style: TextStyle(
-                        fontFamily: 'Ubuntu',
-                        fontWeight: FontWeight.bold,
-                        fontSize: 20.0,
-                        color: widget.data.themeInfo
-                            ? Colors.pink
-                            : Colors.indigoAccent),
-                  ),
-                  Text(
-                    widget.code.CNY,
-                    style:
-                        TextStyle(fontWeight: FontWeight.bold, fontSize: 20.0),
-                  ),
-                  SizedBox(height: 10.0),
-                  Text(
-                    '¥',
-                    style: TextStyle(
-                      fontFamily: 'Ubuntu',
-                      fontWeight: FontWeight.bold,
-                      fontSize: 27.0,
-                      color: Theme.of(context).accentColor,
-                    ),
-                  ),
-                  SizedBox(
-                    height: 10.0,
-                  ),
-                  Padding(
-                    padding: EdgeInsets.only(bottom: 5.0),
-                    child: Flexible(
-                      child: CircleAvatar(
-                        radius: 32,
-                        backgroundColor: Colors.black54,
-                        child: CircleAvatar(
-                          radius: 30.0,
-                          backgroundColor: Colors.grey,
-                          backgroundImage: AssetImage('images/china.png'),
-                        ),
-                      ),
-                    ),
-                  )
+                  currecnyTitle('DOP'),
+                  currencyValue(widget.code.DOP),
+                  currencySymbol('£'),
+                  currencyFlag('images/dominica.png'),
                 ],
               ),
               elevation: 4.0,
             ),
           ),
           onTap: () {
-            showDialog(
-              context: context,
-              builder: (context) => SimpleDialog(
-                title: Text(
-                  'Rate Exchange',
-                  textAlign: TextAlign.center,
-                ),
-                children: [
-                  Text(
-                    '1 ${widget.currenyCode} = ${widget.code.AED} CNY',
-                    textAlign: TextAlign.center,
-                    style: TextStyle(
-                      fontSize: 20.0,
-                      color: Theme.of(context).accentColor,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  )
-                ],
-              ),
-            );
+            displayRate(widget.currenyCode, widget.code.DOP, 'DOP');
           },
         ),
         GestureDetector(
           child: GridTile(
             child: Card(
+              margin: EdgeInsets.symmetric(horizontal: 5.0),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
-                  Text(
-                    'COP',
-                    style: TextStyle(
-                        fontFamily: 'Ubuntu',
-                        fontWeight: FontWeight.bold,
-                        fontSize: 20.0,
-                        color: widget.data.themeInfo
-                            ? Colors.pink
-                            : Colors.indigoAccent),
-                  ),
-                  Text(
-                    widget.code.COP,
-                    style:
-                        TextStyle(fontWeight: FontWeight.bold, fontSize: 20.0),
-                  ),
-                  SizedBox(height: 10.0),
-                  Text(
-                    '\$',
-                    style: TextStyle(
-                      fontFamily: 'Ubuntu',
-                      fontWeight: FontWeight.bold,
-                      fontSize: 27.0,
-                      color: Theme.of(context).accentColor,
-                    ),
-                  ),
-                  SizedBox(
-                    height: 10.0,
-                  ),
-                  Padding(
-                    padding: EdgeInsets.only(bottom: 5.0),
-                    child: Flexible(
-                      child: CircleAvatar(
-                        radius: 32,
-                        backgroundColor: Colors.black54,
-                        child: CircleAvatar(
-                          radius: 30.0,
-                          backgroundColor: Colors.grey,
-                          backgroundImage: AssetImage('images/colombia.png'),
-                        ),
-                      ),
-                    ),
-                  )
+                  currecnyTitle('EGP'),
+                  currencyValue(widget.code.EGP),
+                  currencySymbol('£'),
+                  currencyFlag('images/egypt.png'),
                 ],
               ),
               elevation: 4.0,
             ),
           ),
           onTap: () {
-            showDialog(
-              context: context,
-              builder: (context) => SimpleDialog(
-                title: Text(
-                  'Rate Exchange',
-                  textAlign: TextAlign.center,
-                ),
-                children: [
-                  Text(
-                    '1 ${widget.currenyCode} = ${widget.code.AED} COP',
-                    textAlign: TextAlign.center,
-                    style: TextStyle(
-                      fontSize: 20.0,
-                      color: Theme.of(context).accentColor,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  )
-                ],
-              ),
-            );
+            displayRate(widget.currenyCode, widget.code.EGP, 'EGP');
           },
         ),
         GestureDetector(
           child: GridTile(
             child: Card(
+              margin: EdgeInsets.symmetric(horizontal: 5.0),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
-                  Text(
-                    'CZK',
-                    style: TextStyle(
-                        fontFamily: 'Ubuntu',
-                        fontWeight: FontWeight.bold,
-                        fontSize: 20.0,
-                        color: widget.data.themeInfo
-                            ? Colors.pink
-                            : Colors.indigoAccent),
-                  ),
-                  Text(
-                    widget.code.CZK,
-                    style:
-                        TextStyle(fontWeight: FontWeight.bold, fontSize: 20.0),
-                  ),
-                  SizedBox(height: 10.0),
-                  Text(
-                    'Kč',
-                    style: TextStyle(
-                      fontFamily: 'Ubuntu',
-                      fontWeight: FontWeight.bold,
-                      fontSize: 27.0,
-                      color: Theme.of(context).accentColor,
-                    ),
-                  ),
-                  SizedBox(
-                    height: 10.0,
-                  ),
-                  Padding(
-                    padding: EdgeInsets.only(bottom: 5.0),
-                    child: Flexible(
-                      child: CircleAvatar(
-                        radius: 32,
-                        backgroundColor: Colors.black54,
-                        child: CircleAvatar(
-                          radius: 30.0,
-                          backgroundColor: Colors.grey,
-                          backgroundImage:
-                              AssetImage('images/czechrepublic.png'),
-                        ),
-                      ),
-                    ),
-                  )
+                  currecnyTitle('EUR'),
+                  currencyValue(widget.code.EUR),
+                  currencySymbol('€'),
+                  currencyFlag('images/europeunion.png'),
                 ],
               ),
               elevation: 4.0,
             ),
           ),
           onTap: () {
-            showDialog(
-              context: context,
-              builder: (context) => SimpleDialog(
-                title: Text(
-                  'Rate Exchange',
-                  textAlign: TextAlign.center,
-                ),
-                children: [
-                  Text(
-                    '1 ${widget.currenyCode} = ${widget.code.AED} CZK',
-                    textAlign: TextAlign.center,
-                    style: TextStyle(
-                      fontSize: 20.0,
-                      color: Theme.of(context).accentColor,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  )
-                ],
-              ),
-            );
+            displayRate(widget.currenyCode, widget.code.EUR, 'EUR');
           },
         ),
         GestureDetector(
           child: GridTile(
             child: Card(
+              margin: EdgeInsets.symmetric(horizontal: 5.0),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
-                  Text(
-                    'DKK',
-                    style: TextStyle(
-                        fontFamily: 'Ubuntu',
-                        fontWeight: FontWeight.bold,
-                        fontSize: 20.0,
-                        color: widget.data.themeInfo
-                            ? Colors.pink
-                            : Colors.indigoAccent),
-                  ),
-                  Text(
-                    widget.code.DKK,
-                    style:
-                        TextStyle(fontWeight: FontWeight.bold, fontSize: 20.0),
-                  ),
-                  SizedBox(height: 10.0),
-                  Text(
-                    'kr',
-                    style: TextStyle(
-                      fontFamily: 'Ubuntu',
-                      fontWeight: FontWeight.bold,
-                      fontSize: 27.0,
-                      color: Theme.of(context).accentColor,
-                    ),
-                  ),
-                  SizedBox(
-                    height: 10.0,
-                  ),
-                  Padding(
-                    padding: EdgeInsets.only(bottom: 5.0),
-                    child: Flexible(
-                      child: CircleAvatar(
-                        radius: 32,
-                        backgroundColor: Colors.black54,
-                        child: CircleAvatar(
-                          radius: 30.0,
-                          backgroundColor: Colors.grey,
-                          backgroundImage: AssetImage('images/denmark.png'),
-                        ),
-                      ),
-                    ),
-                  )
+                  currecnyTitle('FJD'),
+                  currencyValue(widget.code.FJD),
+                  currencySymbol('\$'),
+                  currencyFlag('images/fiji.png'),
                 ],
               ),
               elevation: 4.0,
             ),
           ),
           onTap: () {
-            showDialog(
-              context: context,
-              builder: (context) => SimpleDialog(
-                title: Text(
-                  'Rate Exchange',
-                  textAlign: TextAlign.center,
-                ),
-                children: [
-                  Text(
-                    '1 ${widget.currenyCode} = ${widget.code.AED} DKK',
-                    textAlign: TextAlign.center,
-                    style: TextStyle(
-                      fontSize: 20.0,
-                      color: Theme.of(context).accentColor,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  )
-                ],
-              ),
-            );
+            displayRate(widget.currenyCode, widget.code.FJD, 'FJD');
           },
         ),
         GestureDetector(
           child: GridTile(
             child: Card(
+              margin: EdgeInsets.symmetric(horizontal: 5.0),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
-                  Text(
-                    'DOP',
-                    style: TextStyle(
-                        fontFamily: 'Ubuntu',
-                        fontWeight: FontWeight.bold,
-                        fontSize: 20.0,
-                        color: widget.data.themeInfo
-                            ? Colors.pink
-                            : Colors.indigoAccent),
-                  ),
-                  Text(
-                    widget.code.DOP,
-                    style:
-                        TextStyle(fontWeight: FontWeight.bold, fontSize: 20.0),
-                  ),
-                  SizedBox(height: 10.0),
-                  Text(
-                    'RD\$',
-                    style: TextStyle(
-                      fontFamily: 'Ubuntu',
-                      fontWeight: FontWeight.bold,
-                      fontSize: 27.0,
-                      color: Theme.of(context).accentColor,
-                    ),
-                  ),
-                  SizedBox(
-                    height: 10.0,
-                  ),
-                  Padding(
-                    padding: EdgeInsets.only(bottom: 5.0),
-                    child: Flexible(
-                      child: CircleAvatar(
-                        radius: 32,
-                        backgroundColor: Colors.black54,
-                        child: CircleAvatar(
-                          radius: 30.0,
-                          backgroundColor: Colors.grey,
-                          backgroundImage: AssetImage('images/dominica.png'),
-                        ),
-                      ),
-                    ),
-                  )
+                  currecnyTitle('GBP'),
+                  currencyValue(widget.code.GBP),
+                  currencySymbol('£'),
+                  currencyFlag('images/uk.png'),
                 ],
               ),
               elevation: 4.0,
             ),
           ),
           onTap: () {
-            showDialog(
-              context: context,
-              builder: (context) => SimpleDialog(
-                title: Text(
-                  'Rate Exchange',
-                  textAlign: TextAlign.center,
-                ),
-                children: [
-                  Text(
-                    '1 ${widget.currenyCode} = ${widget.code.AED} DOP',
-                    textAlign: TextAlign.center,
-                    style: TextStyle(
-                      fontSize: 20.0,
-                      color: Theme.of(context).accentColor,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  )
-                ],
-              ),
-            );
+            displayRate(widget.currenyCode, widget.code.GBP, 'GBP');
           },
         ),
         GestureDetector(
           child: GridTile(
             child: Card(
+              margin: EdgeInsets.symmetric(horizontal: 5.0),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
-                  Text(
-                    'EGP',
-                    style: TextStyle(
-                        fontFamily: 'Ubuntu',
-                        fontWeight: FontWeight.bold,
-                        fontSize: 20.0,
-                        color: widget.data.themeInfo
-                            ? Colors.pink
-                            : Colors.indigoAccent),
-                  ),
-                  Text(
-                    widget.code.EGP,
-                    style:
-                        TextStyle(fontWeight: FontWeight.bold, fontSize: 20.0),
-                  ),
-                  SizedBox(height: 10.0),
-                  Text(
-                    '£',
-                    style: TextStyle(
-                      fontFamily: 'Ubuntu',
-                      fontWeight: FontWeight.bold,
-                      fontSize: 27.0,
-                      color: Theme.of(context).accentColor,
-                    ),
-                  ),
-                  SizedBox(
-                    height: 10.0,
-                  ),
-                  Padding(
-                    padding: EdgeInsets.only(bottom: 5.0),
-                    child: Flexible(
-                      child: CircleAvatar(
-                        radius: 32,
-                        backgroundColor: Colors.black54,
-                        child: CircleAvatar(
-                          radius: 30.0,
-                          backgroundColor: Colors.grey,
-                          backgroundImage: AssetImage('images/egypt.png'),
-                        ),
-                      ),
-                    ),
-                  )
+                  currecnyTitle('GTQ'),
+                  currencyValue(widget.code.GTQ),
+                  currencySymbol('Q'),
+                  currencyFlag('images/gautemela.png'),
                 ],
               ),
               elevation: 4.0,
             ),
           ),
           onTap: () {
-            showDialog(
-              context: context,
-              builder: (context) => SimpleDialog(
-                title: Text(
-                  'Rate Exchange',
-                  textAlign: TextAlign.center,
-                ),
-                children: [
-                  Text(
-                    '1 ${widget.currenyCode} = ${widget.code.AED} EGP',
-                    textAlign: TextAlign.center,
-                    style: TextStyle(
-                      fontSize: 20.0,
-                      color: Theme.of(context).accentColor,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  )
-                ],
-              ),
-            );
+            displayRate(widget.currenyCode, widget.code.GTQ, 'GTQ');
           },
         ),
         GestureDetector(
           child: GridTile(
             child: Card(
+              margin: EdgeInsets.symmetric(horizontal: 5.0),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
-                  Text(
-                    'EUR',
-                    style: TextStyle(
-                        fontFamily: 'Ubuntu',
-                        fontWeight: FontWeight.bold,
-                        fontSize: 20.0,
-                        color: widget.data.themeInfo
-                            ? Colors.pink
-                            : Colors.indigoAccent),
-                  ),
-                  Text(
-                    widget.code.EUR,
-                    style:
-                        TextStyle(fontWeight: FontWeight.bold, fontSize: 20.0),
-                  ),
-                  SizedBox(height: 10.0),
-                  Text(
-                    '€',
-                    style: TextStyle(
-                      fontFamily: 'Ubuntu',
-                      fontWeight: FontWeight.bold,
-                      fontSize: 27.0,
-                      color: Theme.of(context).accentColor,
-                    ),
-                  ),
-                  SizedBox(
-                    height: 10.0,
-                  ),
-                  Padding(
-                    padding: EdgeInsets.only(bottom: 5.0),
-                    child: Flexible(
-                      child: CircleAvatar(
-                        radius: 32,
-                        backgroundColor: Colors.black54,
-                        child: CircleAvatar(
-                          radius: 30.0,
-                          backgroundColor: Colors.grey,
-                          backgroundImage: AssetImage('images/europeunion.png'),
-                        ),
-                      ),
-                    ),
-                  )
+                  currecnyTitle('HKD'),
+                  currencyValue(widget.code.HKD),
+                  currencySymbol('\$'),
+                  currencyFlag('images/hongkong.png'),
                 ],
               ),
               elevation: 4.0,
             ),
           ),
           onTap: () {
-            showDialog(
-              context: context,
-              builder: (context) => SimpleDialog(
-                title: Text(
-                  'Rate Exchange',
-                  textAlign: TextAlign.center,
-                ),
-                children: [
-                  Text(
-                    '1 ${widget.currenyCode} = ${widget.code.AED} EUR',
-                    textAlign: TextAlign.center,
-                    style: TextStyle(
-                      fontSize: 20.0,
-                      color: Theme.of(context).accentColor,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  )
-                ],
-              ),
-            );
+            displayRate(widget.currenyCode, widget.code.HKD, 'HKD');
           },
         ),
         GestureDetector(
           child: GridTile(
             child: Card(
+              margin: EdgeInsets.symmetric(horizontal: 5.0),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
-                  Text(
-                    'FJD',
-                    style: TextStyle(
-                        fontFamily: 'Ubuntu',
-                        fontWeight: FontWeight.bold,
-                        fontSize: 20.0,
-                        color: widget.data.themeInfo
-                            ? Colors.pink
-                            : Colors.indigoAccent),
-                  ),
-                  Text(
-                    widget.code.FJD,
-                    style:
-                        TextStyle(fontWeight: FontWeight.bold, fontSize: 20.0),
-                  ),
-                  SizedBox(height: 10.0),
-                  Text(
-                    '\$',
-                    style: TextStyle(
-                      fontFamily: 'Ubuntu',
-                      fontWeight: FontWeight.bold,
-                      fontSize: 27.0,
-                      color: Theme.of(context).accentColor,
-                    ),
-                  ),
-                  SizedBox(
-                    height: 10.0,
-                  ),
-                  Padding(
-                    padding: EdgeInsets.only(bottom: 5.0),
-                    child: Flexible(
-                      child: CircleAvatar(
-                        radius: 32,
-                        backgroundColor: Colors.black54,
-                        child: CircleAvatar(
-                          radius: 30.0,
-                          backgroundColor: Colors.grey,
-                          backgroundImage: AssetImage('images/fiji.png'),
-                        ),
-                      ),
-                    ),
-                  )
+                  currecnyTitle('HRK'),
+                  currencyValue(widget.code.HRK),
+                  currencySymbol('kn'),
+                  currencyFlag('images/croatia.png'),
                 ],
               ),
               elevation: 4.0,
             ),
           ),
           onTap: () {
-            showDialog(
-              context: context,
-              builder: (context) => SimpleDialog(
-                title: Text(
-                  'Rate Exchange',
-                  textAlign: TextAlign.center,
-                ),
-                children: [
-                  Text(
-                    '1 ${widget.currenyCode} = ${widget.code.AED} FJD',
-                    textAlign: TextAlign.center,
-                    style: TextStyle(
-                      fontSize: 20.0,
-                      color: Theme.of(context).accentColor,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  )
-                ],
-              ),
-            );
+            displayRate(widget.currenyCode, widget.code.HRK, 'HRK');
           },
         ),
         GestureDetector(
           child: GridTile(
             child: Card(
+              margin: EdgeInsets.symmetric(horizontal: 5.0),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
-                  Text(
-                    'GBP',
-                    style: TextStyle(
-                        fontFamily: 'Ubuntu',
-                        fontWeight: FontWeight.bold,
-                        fontSize: 20.0,
-                        color: widget.data.themeInfo
-                            ? Colors.pink
-                            : Colors.indigoAccent),
-                  ),
-                  Text(
-                    widget.code.GBP,
-                    style:
-                        TextStyle(fontWeight: FontWeight.bold, fontSize: 20.0),
-                  ),
-                  SizedBox(height: 10.0),
-                  Text(
-                    '£',
-                    style: TextStyle(
-                      fontFamily: 'Ubuntu',
-                      fontWeight: FontWeight.bold,
-                      fontSize: 27.0,
-                      color: Theme.of(context).accentColor,
-                    ),
-                  ),
-                  SizedBox(
-                    height: 10.0,
-                  ),
-                  Padding(
-                    padding: EdgeInsets.only(bottom: 5.0),
-                    child: Flexible(
-                      child: CircleAvatar(
-                        radius: 32,
-                        backgroundColor: Colors.black54,
-                        child: CircleAvatar(
-                          radius: 30.0,
-                          backgroundColor: Colors.grey,
-                          backgroundImage: AssetImage('images/uk.png'),
-                        ),
-                      ),
-                    ),
-                  )
+                  currecnyTitle('HUF'),
+                  currencyValue(widget.code.HUF),
+                  currencySymbol('Ft'),
+                  currencyFlag('images/hungary.png'),
                 ],
               ),
               elevation: 4.0,
             ),
           ),
           onTap: () {
-            showDialog(
-              context: context,
-              builder: (context) => SimpleDialog(
-                title: Text(
-                  'Rate Exchange',
-                  textAlign: TextAlign.center,
-                ),
-                children: [
-                  Text(
-                    '1 ${widget.currenyCode} = ${widget.code.AED} GBP',
-                    textAlign: TextAlign.center,
-                    style: TextStyle(
-                      fontSize: 20.0,
-                      color: Theme.of(context).accentColor,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  )
-                ],
-              ),
-            );
+            displayRate(widget.currenyCode, widget.code.HUF, 'HUF');
           },
         ),
         GestureDetector(
           child: GridTile(
             child: Card(
+              margin: EdgeInsets.symmetric(horizontal: 5.0),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
-                  Text(
-                    'GTQ',
-                    style: TextStyle(
-                        fontFamily: 'Ubuntu',
-                        fontWeight: FontWeight.bold,
-                        fontSize: 20.0,
-                        color: widget.data.themeInfo
-                            ? Colors.pink
-                            : Colors.indigoAccent),
-                  ),
-                  Text(
-                    widget.code.GTQ,
-                    style:
-                        TextStyle(fontWeight: FontWeight.bold, fontSize: 20.0),
-                  ),
-                  SizedBox(height: 10.0),
-                  Text(
-                    '	Q',
-                    style: TextStyle(
-                      fontFamily: 'Ubuntu',
-                      fontWeight: FontWeight.bold,
-                      fontSize: 27.0,
-                      color: Theme.of(context).accentColor,
-                    ),
-                  ),
-                  SizedBox(
-                    height: 10.0,
-                  ),
-                  Padding(
-                    padding: EdgeInsets.only(bottom: 5.0),
-                    child: Flexible(
-                      child: CircleAvatar(
-                        radius: 32,
-                        backgroundColor: Colors.black54,
-                        child: CircleAvatar(
-                          radius: 30.0,
-                          backgroundColor: Colors.grey,
-                          backgroundImage: AssetImage('images/gautemela.png'),
-                        ),
-                      ),
-                    ),
-                  )
+                  currecnyTitle('IDR'),
+                  currencyValue(widget.code.IDR),
+                  currencySymbol('₪'),
+                  currencyFlag('images/indonesia.png'),
                 ],
               ),
               elevation: 4.0,
             ),
           ),
           onTap: () {
-            showDialog(
-              context: context,
-              builder: (context) => SimpleDialog(
-                title: Text(
-                  'Rate Exchange',
-                  textAlign: TextAlign.center,
-                ),
-                children: [
-                  Text(
-                    '1 ${widget.currenyCode} = ${widget.code.AED} GTQ',
-                    textAlign: TextAlign.center,
-                    style: TextStyle(
-                      fontSize: 20.0,
-                      color: Theme.of(context).accentColor,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  )
-                ],
-              ),
-            );
+            displayRate(widget.currenyCode, widget.code.IDR, 'IDR');
           },
         ),
         GestureDetector(
           child: GridTile(
             child: Card(
+              margin: EdgeInsets.symmetric(horizontal: 5.0),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
-                  Text(
-                    'HKD',
-                    style: TextStyle(
-                        fontFamily: 'Ubuntu',
-                        fontWeight: FontWeight.bold,
-                        fontSize: 20.0,
-                        color: widget.data.themeInfo
-                            ? Colors.pink
-                            : Colors.indigoAccent),
-                  ),
-                  Text(
-                    widget.code.HKD,
-                    style:
-                        TextStyle(fontWeight: FontWeight.bold, fontSize: 20.0),
-                  ),
-                  SizedBox(height: 10.0),
-                  Text(
-                    '\$',
-                    style: TextStyle(
-                      fontFamily: 'Ubuntu',
-                      fontWeight: FontWeight.bold,
-                      fontSize: 27.0,
-                      color: Theme.of(context).accentColor,
-                    ),
-                  ),
-                  SizedBox(
-                    height: 10.0,
-                  ),
-                  Padding(
-                    padding: EdgeInsets.only(bottom: 5.0),
-                    child: Flexible(
-                      child: CircleAvatar(
-                        radius: 32,
-                        backgroundColor: Colors.black54,
-                        child: CircleAvatar(
-                          radius: 30.0,
-                          backgroundColor: Colors.grey,
-                          backgroundImage: AssetImage('images/hongkong.png'),
-                        ),
-                      ),
-                    ),
-                  )
+                  currecnyTitle('ILS'),
+                  currencyValue(widget.code.ILS),
+                  currencySymbol('₪'),
+                  currencyFlag('images/israel.png'),
                 ],
               ),
               elevation: 4.0,
             ),
           ),
           onTap: () {
-            showDialog(
-              context: context,
-              builder: (context) => SimpleDialog(
-                title: Text(
-                  'Rate Exchange',
-                  textAlign: TextAlign.center,
-                ),
-                children: [
-                  Text(
-                    '1 ${widget.currenyCode} = ${widget.code.AED} HKD',
-                    textAlign: TextAlign.center,
-                    style: TextStyle(
-                      fontSize: 20.0,
-                      color: Theme.of(context).accentColor,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  )
-                ],
-              ),
-            );
+            displayRate(widget.currenyCode, widget.code.ILS, 'ILS');
           },
         ),
         GestureDetector(
           child: GridTile(
             child: Card(
+              margin: EdgeInsets.symmetric(horizontal: 5.0),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
-                  Text(
-                    'HRK',
-                    style: TextStyle(
-                        fontFamily: 'Ubuntu',
-                        fontWeight: FontWeight.bold,
-                        fontSize: 20.0,
-                        color: widget.data.themeInfo
-                            ? Colors.pink
-                            : Colors.indigoAccent),
-                  ),
-                  Text(
-                    widget.code.HRK,
-                    style:
-                        TextStyle(fontWeight: FontWeight.bold, fontSize: 20.0),
-                  ),
-                  SizedBox(height: 10.0),
-                  Text(
-                    'kn',
-                    style: TextStyle(
-                      fontFamily: 'Ubuntu',
-                      fontWeight: FontWeight.bold,
-                      fontSize: 27.0,
-                      color: Theme.of(context).accentColor,
-                    ),
-                  ),
-                  SizedBox(
-                    height: 10.0,
-                  ),
-                  Padding(
-                    padding: EdgeInsets.only(bottom: 5.0),
-                    child: Flexible(
-                      child: CircleAvatar(
-                        radius: 32,
-                        backgroundColor: Colors.black54,
-                        child: CircleAvatar(
-                          radius: 30.0,
-                          backgroundColor: Colors.grey,
-                          backgroundImage: AssetImage('images/croatia.png'),
-                        ),
-                      ),
-                    ),
-                  )
+                  currecnyTitle('INR'),
+                  currencyValue(widget.code.INR),
+                  currencySymbol('₹'),
+                  currencyFlag('images/india.png'),
                 ],
               ),
               elevation: 4.0,
             ),
           ),
           onTap: () {
-            showDialog(
-              context: context,
-              builder: (context) => SimpleDialog(
-                title: Text(
-                  'Rate Exchange',
-                  textAlign: TextAlign.center,
-                ),
-                children: [
-                  Text(
-                    '1 ${widget.currenyCode} = ${widget.code.AED} HRK',
-                    textAlign: TextAlign.center,
-                    style: TextStyle(
-                      fontSize: 20.0,
-                      color: Theme.of(context).accentColor,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  )
-                ],
-              ),
-            );
+            displayRate(widget.currenyCode, widget.code.INR, 'INR');
           },
         ),
         GestureDetector(
           child: GridTile(
             child: Card(
+              margin: EdgeInsets.symmetric(horizontal: 5.0),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
-                  Text(
-                    'HUF',
-                    style: TextStyle(
-                        fontFamily: 'Ubuntu',
-                        fontWeight: FontWeight.bold,
-                        fontSize: 20.0,
-                        color: widget.data.themeInfo
-                            ? Colors.pink
-                            : Colors.indigoAccent),
-                  ),
-                  Text(
-                    widget.code.HUF,
-                    style:
-                        TextStyle(fontWeight: FontWeight.bold, fontSize: 20.0),
-                  ),
-                  SizedBox(height: 10.0),
-                  Text(
-                    'Ft',
-                    style: TextStyle(
-                      fontFamily: 'Ubuntu',
-                      fontWeight: FontWeight.bold,
-                      fontSize: 27.0,
-                      color: Theme.of(context).accentColor,
-                    ),
-                  ),
-                  SizedBox(
-                    height: 10.0,
-                  ),
-                  Padding(
-                    padding: EdgeInsets.only(bottom: 5.0),
-                    child: Flexible(
-                      child: CircleAvatar(
-                        radius: 32,
-                        backgroundColor: Colors.black54,
-                        child: CircleAvatar(
-                          radius: 30.0,
-                          backgroundColor: Colors.grey,
-                          backgroundImage: AssetImage('images/hungary.png'),
-                        ),
-                      ),
-                    ),
-                  )
+                  currecnyTitle('ISK'),
+                  currencyValue(widget.code.ISK),
+                  currencySymbol('kr'),
+                  currencyFlag('images/iceland.png'),
                 ],
               ),
               elevation: 4.0,
             ),
           ),
           onTap: () {
-            showDialog(
-              context: context,
-              builder: (context) => SimpleDialog(
-                title: Text(
-                  'Rate Exchange',
-                  textAlign: TextAlign.center,
-                ),
-                children: [
-                  Text(
-                    '1 ${widget.currenyCode} = ${widget.code.AED} HUF',
-                    textAlign: TextAlign.center,
-                    style: TextStyle(
-                      fontSize: 20.0,
-                      color: Theme.of(context).accentColor,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  )
-                ],
-              ),
-            );
+            displayRate(widget.currenyCode, widget.code.ISK, 'ISK');
           },
         ),
         GestureDetector(
           child: GridTile(
             child: Card(
+              margin: EdgeInsets.symmetric(horizontal: 5.0),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
-                  Text(
-                    'IDR',
-                    style: TextStyle(
-                        fontFamily: 'Ubuntu',
-                        fontWeight: FontWeight.bold,
-                        fontSize: 20.0,
-                        color: widget.data.themeInfo
-                            ? Colors.pink
-                            : Colors.indigoAccent),
-                  ),
-                  Text(
-                    widget.code.IDR,
-                    style:
-                        TextStyle(fontWeight: FontWeight.bold, fontSize: 20.0),
-                  ),
-                  SizedBox(height: 10.0),
-                  Text(
-                    'Rp',
-                    style: TextStyle(
-                      fontFamily: 'Ubuntu',
-                      fontWeight: FontWeight.bold,
-                      fontSize: 27.0,
-                      color: Theme.of(context).accentColor,
-                    ),
-                  ),
-                  SizedBox(
-                    height: 10.0,
-                  ),
-                  Padding(
-                    padding: EdgeInsets.only(bottom: 5.0),
-                    child: Flexible(
-                      child: CircleAvatar(
-                        radius: 32,
-                        backgroundColor: Colors.black54,
-                        child: CircleAvatar(
-                          radius: 30.0,
-                          backgroundColor: Colors.grey,
-                          backgroundImage: AssetImage('images/indonesia.png'),
-                        ),
-                      ),
-                    ),
-                  )
+                  currecnyTitle('JPY'),
+                  currencyValue(widget.code.JPY),
+                  currencySymbol('¥'),
+                  currencyFlag('images/japan.png'),
                 ],
               ),
               elevation: 4.0,
             ),
           ),
           onTap: () {
-            showDialog(
-              context: context,
-              builder: (context) => SimpleDialog(
-                title: Text(
-                  'Rate Exchange',
-                  textAlign: TextAlign.center,
-                ),
-                children: [
-                  Text(
-                    '1 ${widget.currenyCode} = ${widget.code.AED} IDR',
-                    textAlign: TextAlign.center,
-                    style: TextStyle(
-                      fontSize: 20.0,
-                      color: Theme.of(context).accentColor,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  )
-                ],
-              ),
-            );
+            displayRate(widget.currenyCode, widget.code.JPY, 'JPY');
           },
         ),
         GestureDetector(
           child: GridTile(
             child: Card(
+              margin: EdgeInsets.symmetric(horizontal: 5.0),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
-                  Text(
-                    'ILS',
-                    style: TextStyle(
-                        fontFamily: 'Ubuntu',
-                        fontWeight: FontWeight.bold,
-                        fontSize: 20.0,
-                        color: widget.data.themeInfo
-                            ? Colors.pink
-                            : Colors.indigoAccent),
-                  ),
-                  Text(
-                    widget.code.ILS,
-                    style:
-                        TextStyle(fontWeight: FontWeight.bold, fontSize: 20.0),
-                  ),
-                  SizedBox(height: 10.0),
-                  Text(
-                    '₪',
-                    style: TextStyle(
-                      fontFamily: 'Ubuntu',
-                      fontWeight: FontWeight.bold,
-                      fontSize: 27.0,
-                      color: Theme.of(context).accentColor,
-                    ),
-                  ),
-                  SizedBox(
-                    height: 10.0,
-                  ),
-                  Padding(
-                    padding: EdgeInsets.only(bottom: 2.0),
-                    child: Flexible(
-                      child: CircleAvatar(
-                        radius: 32,
-                        backgroundColor: Colors.black54,
-                        child: CircleAvatar(
-                          radius: 30.0,
-                          backgroundColor: Colors.grey,
-                          backgroundImage: AssetImage('images/israel.png'),
-                        ),
-                      ),
-                    ),
-                  )
+                  currecnyTitle('KRW'),
+                  currencyValue(widget.code.KRW),
+                  currencySymbol('₩'),
+                  currencyFlag('images/northkorea.png'),
                 ],
               ),
               elevation: 4.0,
             ),
           ),
           onTap: () {
-            showDialog(
-              context: context,
-              builder: (context) => SimpleDialog(
-                title: Text(
-                  'Rate Exchange',
-                  textAlign: TextAlign.center,
-                ),
-                children: [
-                  Text(
-                    '1 ${widget.currenyCode} = ${widget.code.AED} ILS',
-                    textAlign: TextAlign.center,
-                    style: TextStyle(
-                      fontSize: 20.0,
-                      color: Theme.of(context).accentColor,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  )
-                ],
-              ),
-            );
+            displayRate(widget.currenyCode, widget.code.KRW, 'KRW');
           },
         ),
         GestureDetector(
           child: GridTile(
             child: Card(
+              margin: EdgeInsets.symmetric(horizontal: 5.0),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
-                  Text(
-                    'INR',
-                    style: TextStyle(
-                        fontFamily: 'Ubuntu',
-                        fontWeight: FontWeight.bold,
-                        fontSize: 20.0,
-                        color: widget.data.themeInfo
-                            ? Colors.pink
-                            : Colors.indigoAccent),
-                  ),
-                  Text(
-                    widget.code.INR,
-                    style:
-                        TextStyle(fontWeight: FontWeight.bold, fontSize: 20.0),
-                  ),
-                  SizedBox(height: 10.0),
-                  Text(
-                    '₹',
-                    style: TextStyle(
-                      fontFamily: 'Ubuntu',
-                      fontWeight: FontWeight.bold,
-                      fontSize: 27.0,
-                      color: Theme.of(context).accentColor,
-                    ),
-                  ),
-                  SizedBox(
-                    height: 10.0,
-                  ),
-                  Padding(
-                    padding: EdgeInsets.only(bottom: 5.0),
-                    child: Flexible(
-                      child: CircleAvatar(
-                        radius: 32,
-                        backgroundColor: Colors.black54,
-                        child: CircleAvatar(
-                          radius: 30.0,
-                          backgroundColor: Colors.grey,
-                          backgroundImage: AssetImage('images/india.png'),
-                        ),
-                      ),
-                    ),
-                  )
+                  currecnyTitle('KZT'),
+                  currencyValue(widget.code.KZT),
+                  currencySymbol('лв'),
+                  currencyFlag('images/kazakhstan.png'),
                 ],
               ),
               elevation: 4.0,
             ),
           ),
           onTap: () {
-            showDialog(
-              context: context,
-              builder: (context) => SimpleDialog(
-                title: Text(
-                  'Rate Exchange',
-                  textAlign: TextAlign.center,
-                ),
-                children: [
-                  Text(
-                    '1 ${widget.currenyCode} = ${widget.code.AED} INR',
-                    textAlign: TextAlign.center,
-                    style: TextStyle(
-                      fontSize: 20.0,
-                      color: Theme.of(context).accentColor,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  )
-                ],
-              ),
-            );
+            displayRate(widget.currenyCode, widget.code.KZT, 'KZT');
           },
         ),
         GestureDetector(
           child: GridTile(
             child: Card(
+              margin: EdgeInsets.symmetric(horizontal: 5.0),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
-                  Text(
-                    'ISK',
-                    style: TextStyle(
-                        fontFamily: 'Ubuntu',
-                        fontWeight: FontWeight.bold,
-                        fontSize: 20.0,
-                        color: widget.data.themeInfo
-                            ? Colors.pink
-                            : Colors.indigoAccent),
-                  ),
-                  Text(
-                    widget.code.ISK,
-                    style:
-                        TextStyle(fontWeight: FontWeight.bold, fontSize: 20.0),
-                  ),
-                  SizedBox(height: 10.0),
-                  Text(
-                    'kr',
-                    style: TextStyle(
-                      fontFamily: 'Ubuntu',
-                      fontWeight: FontWeight.bold,
-                      fontSize: 27.0,
-                      color: Theme.of(context).accentColor,
-                    ),
-                  ),
-                  SizedBox(
-                    height: 10.0,
-                  ),
-                  Padding(
-                    padding: EdgeInsets.only(bottom: 5.0),
-                    child: Flexible(
-                      child: CircleAvatar(
-                        radius: 32,
-                        backgroundColor: Colors.black54,
-                        child: CircleAvatar(
-                          radius: 30.0,
-                          backgroundColor: Colors.grey,
-                          backgroundImage: AssetImage('images/iceland.png'),
-                        ),
-                      ),
-                    ),
-                  )
+                  currecnyTitle('MVR'),
+                  currencyValue(widget.code.MVR),
+                  currencySymbol('Rf'),
+                  currencyFlag('images/maldives.png'),
                 ],
               ),
               elevation: 4.0,
             ),
           ),
           onTap: () {
-            showDialog(
-              context: context,
-              builder: (context) => SimpleDialog(
-                title: Text(
-                  'Rate Exchange',
-                  textAlign: TextAlign.center,
-                ),
-                children: [
-                  Text(
-                    '1 ${widget.currenyCode} = ${widget.code.AED} ISK',
-                    textAlign: TextAlign.center,
-                    style: TextStyle(
-                      fontSize: 20.0,
-                      color: Theme.of(context).accentColor,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  )
-                ],
-              ),
-            );
+            displayRate(widget.currenyCode, widget.code.MVR, 'MVR');
           },
         ),
         GestureDetector(
           child: GridTile(
             child: Card(
+              margin: EdgeInsets.symmetric(horizontal: 5.0),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
-                  Text(
-                    'JPY',
-                    style: TextStyle(
-                        fontFamily: 'Ubuntu',
-                        fontWeight: FontWeight.bold,
-                        fontSize: 20.0,
-                        color: widget.data.themeInfo
-                            ? Colors.pink
-                            : Colors.indigoAccent),
-                  ),
-                  Text(
-                    widget.code.JPY,
-                    style:
-                        TextStyle(fontWeight: FontWeight.bold, fontSize: 20.0),
-                  ),
-                  SizedBox(height: 10.0),
-                  Text(
-                    '¥',
-                    style: TextStyle(
-                      fontFamily: 'Ubuntu',
-                      fontWeight: FontWeight.bold,
-                      fontSize: 27.0,
-                      color: Theme.of(context).accentColor,
-                    ),
-                  ),
-                  SizedBox(
-                    height: 10.0,
-                  ),
-                  Padding(
-                    padding: EdgeInsets.only(bottom: 5.0),
-                    child: Flexible(
-                      child: CircleAvatar(
-                        radius: 32,
-                        backgroundColor: Colors.black54,
-                        child: CircleAvatar(
-                          radius: 30.0,
-                          backgroundColor: Colors.grey,
-                          backgroundImage: AssetImage('images/japan.png'),
-                        ),
-                      ),
-                    ),
-                  )
+                  currecnyTitle('MYR'),
+                  currencyValue(widget.code.MYR),
+                  currencySymbol('RM'),
+                  currencyFlag('images/malaysia.png'),
                 ],
               ),
               elevation: 4.0,
             ),
           ),
           onTap: () {
-            showDialog(
-              context: context,
-              builder: (context) => SimpleDialog(
-                title: Text(
-                  'Rate Exchange',
-                  textAlign: TextAlign.center,
-                ),
-                children: [
-                  Text(
-                    '1 ${widget.currenyCode} = ${widget.code.AED} JPY',
-                    textAlign: TextAlign.center,
-                    style: TextStyle(
-                      fontSize: 20.0,
-                      color: Theme.of(context).accentColor,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  )
-                ],
-              ),
-            );
+            displayRate(widget.currenyCode, widget.code.MYR, 'MYR');
           },
         ),
         GestureDetector(
           child: GridTile(
             child: Card(
+              margin: EdgeInsets.symmetric(horizontal: 5.0),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
-                  Text(
-                    'KRW',
-                    style: TextStyle(
-                        fontFamily: 'Ubuntu',
-                        fontWeight: FontWeight.bold,
-                        fontSize: 20.0,
-                        color: widget.data.themeInfo
-                            ? Colors.pink
-                            : Colors.indigoAccent),
-                  ),
-                  Text(
-                    widget.code.KRW,
-                    style:
-                        TextStyle(fontWeight: FontWeight.bold, fontSize: 20.0),
-                  ),
-                  SizedBox(height: 10.0),
-                  Text(
-                    '₩',
-                    style: TextStyle(
-                      fontFamily: 'Ubuntu',
-                      fontWeight: FontWeight.bold,
-                      fontSize: 27.0,
-                      color: Theme.of(context).accentColor,
-                    ),
-                  ),
-                  Padding(
-                    padding: EdgeInsets.only(bottom: 8.0),
-                    child: Flexible(
-                      child: CircleAvatar(
-                        radius: 32,
-                        backgroundColor: Colors.black54,
-                        child: CircleAvatar(
-                          radius: 30.0,
-                          backgroundColor: Colors.grey,
-                          backgroundImage: AssetImage('images/northkorea.png'),
-                        ),
-                      ),
-                    ),
-                  )
+                  currecnyTitle('NOK'),
+                  currencyValue(widget.code.NOK),
+                  currencySymbol('Kr'),
+                  currencyFlag('images/norway.png'),
                 ],
               ),
               elevation: 4.0,
             ),
           ),
           onTap: () {
-            showDialog(
-              context: context,
-              builder: (context) => SimpleDialog(
-                title: Text(
-                  'Rate Exchange',
-                  textAlign: TextAlign.center,
-                ),
-                children: [
-                  Text(
-                    '1 ${widget.currenyCode} = ${widget.code.AED} KRW',
-                    textAlign: TextAlign.center,
-                    style: TextStyle(
-                      fontSize: 20.0,
-                      color: Theme.of(context).accentColor,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  )
-                ],
-              ),
-            );
+            displayRate(widget.currenyCode, widget.code.NOK, 'NOK');
           },
         ),
         GestureDetector(
           child: GridTile(
             child: Card(
+              margin: EdgeInsets.symmetric(horizontal: 5.0),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
-                  Text(
-                    'KZT',
-                    style: TextStyle(
-                        fontFamily: 'Ubuntu',
-                        fontWeight: FontWeight.bold,
-                        fontSize: 20.0,
-                        color: widget.data.themeInfo
-                            ? Colors.pink
-                            : Colors.indigoAccent),
-                  ),
-                  Text(
-                    widget.code.KZT,
-                    style:
-                        TextStyle(fontWeight: FontWeight.bold, fontSize: 20.0),
-                  ),
-                  SizedBox(height: 10.0),
-                  Text(
-                    'лв',
-                    style: TextStyle(
-                      fontFamily: 'Ubuntu',
-                      fontWeight: FontWeight.bold,
-                      fontSize: 27.0,
-                      color: Theme.of(context).accentColor,
-                    ),
-                  ),
-                  SizedBox(
-                    height: 10.0,
-                  ),
-                  Padding(
-                    padding: EdgeInsets.only(bottom: 5.0),
-                    child: Flexible(
-                      child: CircleAvatar(
-                        radius: 32,
-                        backgroundColor: Colors.black54,
-                        child: CircleAvatar(
-                          radius: 30.0,
-                          backgroundColor: Colors.grey,
-                          backgroundImage: AssetImage('images/kazakhstan.png'),
-                        ),
-                      ),
-                    ),
-                  )
+                  currecnyTitle('NZD'),
+                  currencyValue(widget.code.NZD),
+                  currencySymbol('\$'),
+                  currencyFlag('images/newzealand.png'),
                 ],
               ),
               elevation: 4.0,
             ),
           ),
           onTap: () {
-            showDialog(
-              context: context,
-              builder: (context) => SimpleDialog(
-                title: Text(
-                  'Rate Exchange',
-                  textAlign: TextAlign.center,
-                ),
-                children: [
-                  Text(
-                    '1 ${widget.currenyCode} = ${widget.code.AED} KZT',
-                    textAlign: TextAlign.center,
-                    style: TextStyle(
-                      fontSize: 20.0,
-                      color: Theme.of(context).accentColor,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  )
-                ],
-              ),
-            );
+            displayRate(widget.currenyCode, widget.code.NZD, 'NZD');
           },
         ),
         GestureDetector(
           child: GridTile(
             child: Card(
+              margin: EdgeInsets.symmetric(horizontal: 5.0),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
-                  Text(
-                    'MVR',
-                    style: TextStyle(
-                        fontFamily: 'Ubuntu',
-                        fontWeight: FontWeight.bold,
-                        fontSize: 20.0,
-                        color: widget.data.themeInfo
-                            ? Colors.pink
-                            : Colors.indigoAccent),
-                  ),
-                  Text(
-                    widget.code.MVR,
-                    style:
-                        TextStyle(fontWeight: FontWeight.bold, fontSize: 20.0),
-                  ),
-                  SizedBox(height: 10.0),
-                  Text(
-                    '	Rf',
-                    style: TextStyle(
-                      fontFamily: 'Ubuntu',
-                      fontWeight: FontWeight.bold,
-                      fontSize: 27.0,
-                      color: Theme.of(context).accentColor,
-                    ),
-                  ),
-                  SizedBox(
-                    height: 10.0,
-                  ),
-                  Padding(
-                    padding: EdgeInsets.only(bottom: 5.0),
-                    child: Flexible(
-                      child: CircleAvatar(
-                        radius: 32,
-                        backgroundColor: Colors.black54,
-                        child: CircleAvatar(
-                          radius: 30.0,
-                          backgroundColor: Colors.grey,
-                          backgroundImage: AssetImage('images/maldives.png'),
-                        ),
-                      ),
-                    ),
-                  )
+                  currecnyTitle('PAB'),
+                  currencyValue(widget.code.PAB),
+                  currencySymbol('B.'),
+                  currencyFlag('images/panama.png'),
                 ],
               ),
               elevation: 4.0,
             ),
           ),
           onTap: () {
-            showDialog(
-              context: context,
-              builder: (context) => SimpleDialog(
-                title: Text(
-                  'Rate Exchange',
-                  textAlign: TextAlign.center,
-                ),
+            displayRate(widget.currenyCode, widget.code.PAB, 'PAB');
+          },
+        ),
+
+        GestureDetector(
+          child: GridTile(
+            child: Card(
+              margin: EdgeInsets.symmetric(horizontal: 5.0),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.end,
                 children: [
-                  Text(
-                    '1 ${widget.currenyCode} = ${widget.code.AED} MVR',
-                    textAlign: TextAlign.center,
-                    style: TextStyle(
-                      fontSize: 20.0,
-                      color: Theme.of(context).accentColor,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  )
+                  currecnyTitle('PEN'),
+                  currencyValue(widget.code.PEN),
+                  currencySymbol('S.'),
+                  currencyFlag('images/peru.png'),
                 ],
               ),
-            );
+              elevation: 4.0,
+            ),
+          ),
+          onTap: () {
+            displayRate(widget.currenyCode, widget.code.PEN, 'PEN');
           },
         ),
         GestureDetector(
           child: GridTile(
             child: Card(
+              margin: EdgeInsets.symmetric(horizontal: 5.0),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
-                  Text(
-                    'MYR',
-                    style: TextStyle(
-                        fontFamily: 'Ubuntu',
-                        fontWeight: FontWeight.bold,
-                        fontSize: 20.0,
-                        color: widget.data.themeInfo
-                            ? Colors.pink
-                            : Colors.indigoAccent),
-                  ),
-                  Text(
-                    widget.code.MYR,
-                    style:
-                        TextStyle(fontWeight: FontWeight.bold, fontSize: 20.0),
-                  ),
-                  SizedBox(height: 10.0),
-                  Text(
-                    'RM',
-                    style: TextStyle(
-                      fontFamily: 'Ubuntu',
-                      fontWeight: FontWeight.bold,
-                      fontSize: 27.0,
-                      color: Theme.of(context).accentColor,
-                    ),
-                  ),
-                  SizedBox(
-                    height: 10.0,
-                  ),
-                  Padding(
-                    padding: EdgeInsets.only(bottom: 5.0),
-                    child: Flexible(
-                      child: CircleAvatar(
-                        radius: 32,
-                        backgroundColor: Colors.black54,
-                        child: CircleAvatar(
-                          radius: 30.0,
-                          backgroundColor: Colors.grey,
-                          backgroundImage: AssetImage('images/malaysia.png'),
-                        ),
-                      ),
-                    ),
-                  )
+                  currecnyTitle('PHP'),
+                  currencyValue(widget.code.PHP),
+                  currencySymbol('P'),
+                  currencyFlag('images/philippines.png'),
                 ],
               ),
               elevation: 4.0,
             ),
           ),
           onTap: () {
-            showDialog(
-              context: context,
-              builder: (context) => SimpleDialog(
-                title: Text(
-                  'Rate Exchange',
-                  textAlign: TextAlign.center,
-                ),
+            displayRate(widget.currenyCode, widget.code.PHP, 'PHP');
+          },
+        ),
+
+        GestureDetector(
+          child: GridTile(
+            child: Card(
+              margin: EdgeInsets.symmetric(horizontal: 5.0),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.end,
                 children: [
-                  Text(
-                    '1 ${widget.currenyCode} = ${widget.code.AED} MYR',
-                    textAlign: TextAlign.center,
-                    style: TextStyle(
-                      fontSize: 20.0,
-                      color: Theme.of(context).accentColor,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  )
+                  currecnyTitle('PKR'),
+                  currencyValue(widget.code.PKR),
+                  currencySymbol('Rs'),
+                  currencyFlag('images/pakistan.png'),
                 ],
               ),
-            );
+              elevation: 4.0,
+            ),
+          ),
+          onTap: () {
+            displayRate(widget.currenyCode, widget.code.PKR, 'PKR');
           },
         ),
         GestureDetector(
           child: GridTile(
             child: Card(
+              margin: EdgeInsets.symmetric(horizontal: 5.0),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
-                  Text(
-                    'NOK',
-                    style: TextStyle(
-                        fontFamily: 'Ubuntu',
-                        fontWeight: FontWeight.bold,
-                        fontSize: 20.0,
-                        color: widget.data.themeInfo
-                            ? Colors.pink
-                            : Colors.indigoAccent),
-                  ),
-                  Text(
-                    widget.code.NOK,
-                    style:
-                        TextStyle(fontWeight: FontWeight.bold, fontSize: 20.0),
-                  ),
-                  SizedBox(height: 10.0),
-                  Text(
-                    'kr',
-                    style: TextStyle(
-                      fontFamily: 'Ubuntu',
-                      fontWeight: FontWeight.bold,
-                      fontSize: 27.0,
-                      color: Theme.of(context).accentColor,
-                    ),
-                  ),
-                  SizedBox(
-                    height: 10.0,
-                  ),
-                  Padding(
-                    padding: EdgeInsets.only(bottom: 5.0),
-                    child: Flexible(
-                      child: CircleAvatar(
-                        radius: 32,
-                        backgroundColor: Colors.black54,
-                        child: CircleAvatar(
-                          radius: 30.0,
-                          backgroundColor: Colors.grey,
-                          backgroundImage: AssetImage('images/norway.png'),
-                        ),
-                      ),
-                    ),
-                  )
+                  currecnyTitle('PLN'),
+                  currencyValue(widget.code.PLN),
+                  currencySymbol('zł'),
+                  currencyFlag('images/poland.png'),
                 ],
               ),
               elevation: 4.0,
             ),
           ),
           onTap: () {
-            showDialog(
-              context: context,
-              builder: (context) => SimpleDialog(
-                title: Text(
-                  'Rate Exchange',
-                  textAlign: TextAlign.center,
-                ),
-                children: [
-                  Text(
-                    '1 ${widget.currenyCode} = ${widget.code.AED} NOK',
-                    textAlign: TextAlign.center,
-                    style: TextStyle(
-                      fontSize: 20.0,
-                      color: Theme.of(context).accentColor,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  )
-                ],
-              ),
-            );
+            displayRate(widget.currenyCode, widget.code.PLN, 'PLN');
           },
         ),
         GestureDetector(
           child: GridTile(
             child: Card(
+              margin: EdgeInsets.symmetric(horizontal: 5.0),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
-                  Text(
-                    'NZD',
-                    style: TextStyle(
-                        fontFamily: 'Ubuntu',
-                        fontWeight: FontWeight.bold,
-                        fontSize: 20.0,
-                        color: widget.data.themeInfo
-                            ? Colors.pink
-                            : Colors.indigoAccent),
-                  ),
-                  Text(
-                    widget.code.NZD,
-                    style:
-                        TextStyle(fontWeight: FontWeight.bold, fontSize: 20.0),
-                  ),
-                  SizedBox(height: 10.0),
-                  Text(
-                    '\$',
-                    style: TextStyle(
-                      fontFamily: 'Ubuntu',
-                      fontWeight: FontWeight.bold,
-                      fontSize: 27.0,
-                      color: Theme.of(context).accentColor,
-                    ),
-                  ),
-                  SizedBox(
-                    height: 10.0,
-                  ),
-                  Padding(
-                    padding: EdgeInsets.only(bottom: 5.0),
-                    child: Flexible(
-                      child: CircleAvatar(
-                        radius: 32,
-                        backgroundColor: Colors.black54,
-                        child: CircleAvatar(
-                          radius: 30.0,
-                          backgroundColor: Colors.grey,
-                          backgroundImage: AssetImage('images/newzealand.png'),
-                        ),
-                      ),
-                    ),
-                  )
+                  currecnyTitle('SAR'),
+                  currencyValue(widget.code.SAR),
+                  currencySymbol('Gs'),
+                  currencyFlag('images/paraguay.png'),
                 ],
               ),
               elevation: 4.0,
             ),
           ),
           onTap: () {
-            showDialog(
-              context: context,
-              builder: (context) => SimpleDialog(
-                title: Text(
-                  'Rate Exchange',
-                  textAlign: TextAlign.center,
-                ),
+            displayRate(widget.currenyCode, widget.code.SAR, 'SAR');
+          },
+        ),
+
+        GestureDetector(
+          child: GridTile(
+            child: Card(
+              margin: EdgeInsets.symmetric(horizontal: 5.0),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.end,
                 children: [
-                  Text(
-                    '1 ${widget.currenyCode} = ${widget.code.AED} NZD',
-                    textAlign: TextAlign.center,
-                    style: TextStyle(
-                      fontSize: 20.0,
-                      color: Theme.of(context).accentColor,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  )
+                  currecnyTitle('SGD'),
+                  currencyValue(widget.code.SGD),
+                  currencySymbol('﷼'),
+                  currencyFlag('images/saudiarabia.png'),
                 ],
               ),
-            );
+              elevation: 4.0,
+            ),
+          ),
+          onTap: () {
+            displayRate(widget.currenyCode, widget.code.SGD, 'SGD');
+          },
+        ),
+
+        GestureDetector(
+          child: GridTile(
+            child: Card(
+              margin: EdgeInsets.symmetric(horizontal: 5.0),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: [
+                  currecnyTitle('SEK'),
+                  currencyValue(widget.code.SEK),
+                  currencySymbol('kr'),
+                  currencyFlag('images/sweden.png'),
+                ],
+              ),
+              elevation: 4.0,
+            ),
+          ),
+          onTap: () {
+            displayRate(widget.currenyCode, widget.code.SEK, 'SEK');
           },
         ),
         GestureDetector(
           child: GridTile(
             child: Card(
+              margin: EdgeInsets.symmetric(horizontal: 5.0),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
-                  Text(
-                    'PAB',
-                    style: TextStyle(
-                        fontFamily: 'Ubuntu',
-                        fontWeight: FontWeight.bold,
-                        fontSize: 20.0,
-                        color: widget.data.themeInfo
-                            ? Colors.pink
-                            : Colors.indigoAccent),
-                  ),
-                  Text(
-                    widget.code.PAB,
-                    style:
-                        TextStyle(fontWeight: FontWeight.bold, fontSize: 20.0),
-                  ),
-                  SizedBox(height: 10.0),
-                  Text(
-                    'B/.',
-                    style: TextStyle(
-                      fontFamily: 'Ubuntu',
-                      fontWeight: FontWeight.bold,
-                      fontSize: 27.0,
-                      color: Theme.of(context).accentColor,
-                    ),
-                  ),
-                  SizedBox(
-                    height: 10.0,
-                  ),
-                  Padding(
-                    padding: EdgeInsets.only(bottom: 5.0),
-                    child: Flexible(
-                      child: CircleAvatar(
-                        radius: 32,
-                        backgroundColor: Colors.black54,
-                        child: CircleAvatar(
-                          radius: 30.0,
-                          backgroundColor: Colors.grey,
-                          backgroundImage: AssetImage('images/panama.png'),
-                        ),
-                      ),
-                    ),
-                  )
+                  currecnyTitle('SGD'),
+                  currencyValue(widget.code.SGD),
+                  currencySymbol('\$'),
+                  currencyFlag('images/singapore.png'),
                 ],
               ),
               elevation: 4.0,
             ),
           ),
           onTap: () {
-            showDialog(
-              context: context,
-              builder: (context) => SimpleDialog(
-                title: Text(
-                  'Rate Exchange',
-                  textAlign: TextAlign.center,
-                ),
-                children: [
-                  Text(
-                    '1 ${widget.currenyCode} = ${widget.code.AED} PAB',
-                    textAlign: TextAlign.center,
-                    style: TextStyle(
-                      fontSize: 20.0,
-                      color: Theme.of(context).accentColor,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  )
-                ],
-              ),
-            );
+            displayRate(widget.currenyCode, widget.code.SGD, 'SGD');
           },
         ),
         GestureDetector(
           child: GridTile(
             child: Card(
+              margin: EdgeInsets.symmetric(horizontal: 5.0),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
-                  Text(
-                    'PEN',
-                    style: TextStyle(
-                        fontFamily: 'Ubuntu',
-                        fontWeight: FontWeight.bold,
-                        fontSize: 20.0,
-                        color: widget.data.themeInfo
-                            ? Colors.pink
-                            : Colors.indigoAccent),
-                  ),
-                  Text(
-                    widget.code.PEN,
-                    style:
-                        TextStyle(fontWeight: FontWeight.bold, fontSize: 20.0),
-                  ),
-                  SizedBox(height: 10.0),
-                  Text(
-                    'S/.',
-                    style: TextStyle(
-                      fontFamily: 'Ubuntu',
-                      fontWeight: FontWeight.bold,
-                      fontSize: 27.0,
-                      color: Theme.of(context).accentColor,
-                    ),
-                  ),
-                  SizedBox(
-                    height: 10.0,
-                  ),
-                  Padding(
-                    padding: EdgeInsets.only(bottom: 5.0),
-                    child: Flexible(
-                      child: CircleAvatar(
-                        radius: 32,
-                        backgroundColor: Colors.black54,
-                        child: CircleAvatar(
-                          radius: 30.0,
-                          backgroundColor: Colors.grey,
-                          backgroundImage: AssetImage('images/peru.png'),
-                        ),
-                      ),
-                    ),
-                  )
+                  currecnyTitle('THB'),
+                  currencyValue(widget.code.THB),
+                  currencySymbol('฿	'),
+                  currencyFlag('images/thailand.png'),
                 ],
               ),
               elevation: 4.0,
             ),
           ),
           onTap: () {
-            showDialog(
-              context: context,
-              builder: (context) => SimpleDialog(
-                title: Text(
-                  'Rate Exchange',
-                  textAlign: TextAlign.center,
-                ),
-                children: [
-                  Text(
-                    '1 ${widget.currenyCode} = ${widget.code.AED} PEN',
-                    textAlign: TextAlign.center,
-                    style: TextStyle(
-                      fontSize: 20.0,
-                      color: Theme.of(context).accentColor,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  )
-                ],
-              ),
-            );
+            displayRate(widget.currenyCode, widget.code.THB, 'THB');
           },
         ),
         GestureDetector(
           child: GridTile(
             child: Card(
+              margin: EdgeInsets.symmetric(horizontal: 5.0),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
-                  Text(
-                    'PHP',
-                    style: TextStyle(
-                        fontFamily: 'Ubuntu',
-                        fontWeight: FontWeight.bold,
-                        fontSize: 20.0,
-                        color: widget.data.themeInfo
-                            ? Colors.pink
-                            : Colors.indigoAccent),
-                  ),
-                  Text(
-                    widget.code.PHP,
-                    style:
-                        TextStyle(fontWeight: FontWeight.bold, fontSize: 20.0),
-                  ),
-                  SizedBox(height: 10.0),
-                  Text(
-                    '₱',
-                    style: TextStyle(
-                      fontFamily: 'Ubuntu',
-                      fontWeight: FontWeight.bold,
-                      fontSize: 27.0,
-                      color: Theme.of(context).accentColor,
-                    ),
-                  ),
-                  SizedBox(
-                    height: 10.0,
-                  ),
-                  Padding(
-                    padding: EdgeInsets.only(bottom: 5.0),
-                    child: Flexible(
-                      child: CircleAvatar(
-                        radius: 32,
-                        backgroundColor: Colors.black54,
-                        child: CircleAvatar(
-                          radius: 30.0,
-                          backgroundColor: Colors.grey,
-                          backgroundImage: AssetImage('images/philippines.png'),
-                        ),
-                      ),
-                    ),
-                  )
+                  currecnyTitle('TRY'),
+                  currencyValue(widget.code.TRY),
+                  currencySymbol('t'),
+                  currencyFlag('images/turkey.png'),
                 ],
               ),
               elevation: 4.0,
             ),
           ),
           onTap: () {
-            showDialog(
-              context: context,
-              builder: (context) => SimpleDialog(
-                title: Text(
-                  'Rate Exchange',
-                  textAlign: TextAlign.center,
-                ),
-                children: [
-                  Text(
-                    '1 ${widget.currenyCode} = ${widget.code.AED} PHP',
-                    textAlign: TextAlign.center,
-                    style: TextStyle(
-                      fontSize: 20.0,
-                      color: Theme.of(context).accentColor,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  )
-                ],
-              ),
-            );
+            displayRate(widget.currenyCode, widget.code.TRY, 'TRY');
           },
         ),
         GestureDetector(
           child: GridTile(
             child: Card(
+              margin: EdgeInsets.symmetric(horizontal: 5.0),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
-                  Text(
-                    'PKR',
-                    style: TextStyle(
-                        fontFamily: 'Ubuntu',
-                        fontWeight: FontWeight.bold,
-                        fontSize: 20.0,
-                        color: widget.data.themeInfo
-                            ? Colors.pink
-                            : Colors.indigoAccent),
-                  ),
-                  Text(
-                    widget.code.PKR,
-                    style:
-                        TextStyle(fontWeight: FontWeight.bold, fontSize: 20.0),
-                  ),
-                  SizedBox(height: 10.0),
-                  Text(
-                    '₨',
-                    style: TextStyle(
-                      fontFamily: 'Ubuntu',
-                      fontWeight: FontWeight.bold,
-                      fontSize: 27.0,
-                      color: Theme.of(context).accentColor,
-                    ),
-                  ),
-                  SizedBox(
-                    height: 10.0,
-                  ),
-                  Padding(
-                    padding: EdgeInsets.only(bottom: 5.0),
-                    child: Flexible(
-                      child: CircleAvatar(
-                        radius: 32,
-                        backgroundColor: Colors.black54,
-                        child: CircleAvatar(
-                          radius: 30.0,
-                          backgroundColor: Colors.grey,
-                          backgroundImage: AssetImage('images/pakistan.png'),
-                        ),
-                      ),
-                    ),
-                  )
+                  currecnyTitle('TWD'),
+                  currencyValue(widget.code.TWD),
+                  currencySymbol('分'),
+                  currencyFlag('images/taiwan.png'),
                 ],
               ),
               elevation: 4.0,
             ),
           ),
           onTap: () {
-            showDialog(
-              context: context,
-              builder: (context) => SimpleDialog(
-                title: Text(
-                  'Rate Exchange',
-                  textAlign: TextAlign.center,
-                ),
-                children: [
-                  Text(
-                    '1 ${widget.currenyCode} = ${widget.code.AED} PKR',
-                    textAlign: TextAlign.center,
-                    style: TextStyle(
-                      fontSize: 20.0,
-                      color: Theme.of(context).accentColor,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  )
-                ],
-              ),
-            );
+            displayRate(widget.currenyCode, widget.code.TWD, 'TWD');
           },
         ),
         GestureDetector(
           child: GridTile(
             child: Card(
+              margin: EdgeInsets.symmetric(horizontal: 5.0),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
-                  Text(
-                    'PLN',
-                    style: TextStyle(
-                        fontFamily: 'Ubuntu',
-                        fontWeight: FontWeight.bold,
-                        fontSize: 20.0,
-                        color: widget.data.themeInfo
-                            ? Colors.pink
-                            : Colors.indigoAccent),
-                  ),
-                  Text(
-                    widget.code.PLN,
-                    style:
-                        TextStyle(fontWeight: FontWeight.bold, fontSize: 20.0),
-                  ),
-                  SizedBox(height: 10.0),
-                  Text(
-                    'zł',
-                    style: TextStyle(
-                      fontFamily: 'Ubuntu',
-                      fontWeight: FontWeight.bold,
-                      fontSize: 27.0,
-                      color: Theme.of(context).accentColor,
-                    ),
-                  ),
-                  SizedBox(
-                    height: 10.0,
-                  ),
-                  Padding(
-                    padding: EdgeInsets.only(bottom: 5.0),
-                    child: Flexible(
-                      child: CircleAvatar(
-                        radius: 32,
-                        backgroundColor: Colors.black54,
-                        child: CircleAvatar(
-                          radius: 30.0,
-                          backgroundColor: Colors.grey,
-                          backgroundImage: AssetImage('images/poland.png'),
-                        ),
-                      ),
-                    ),
-                  )
+                  currecnyTitle('UAH'),
+                  currencyValue(widget.code.UAH),
+                  currencySymbol('₴'),
+                  currencyFlag('images/ukraine.png'),
                 ],
               ),
               elevation: 4.0,
             ),
           ),
           onTap: () {
-            showDialog(
-              context: context,
-              builder: (context) => SimpleDialog(
-                title: Text(
-                  'Rate Exchange',
-                  textAlign: TextAlign.center,
-                ),
-                children: [
-                  Text(
-                    '1 ${widget.currenyCode} = ${widget.code.AED} PLN',
-                    textAlign: TextAlign.center,
-                    style: TextStyle(
-                      fontSize: 20.0,
-                      color: Theme.of(context).accentColor,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  )
-                ],
-              ),
-            );
+            displayRate(widget.currenyCode, widget.code.UAH, 'UAH');
           },
         ),
         GestureDetector(
           child: GridTile(
             child: Card(
+              margin: EdgeInsets.symmetric(horizontal: 5.0),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
-                  Text(
-                    'PYG',
-                    style: TextStyle(
-                        fontFamily: 'Ubuntu',
-                        fontWeight: FontWeight.bold,
-                        fontSize: 20.0,
-                        color: widget.data.themeInfo
-                            ? Colors.pink
-                            : Colors.indigoAccent),
-                  ),
-                  Text(
-                    widget.code.PYG,
-                    style:
-                        TextStyle(fontWeight: FontWeight.bold, fontSize: 20.0),
-                  ),
-                  SizedBox(height: 10.0),
-                  Text(
-                    'Gs',
-                    style: TextStyle(
-                      fontFamily: 'Ubuntu',
-                      fontWeight: FontWeight.bold,
-                      fontSize: 27.0,
-                      color: Theme.of(context).accentColor,
-                    ),
-                  ),
-                  SizedBox(
-                    height: 10.0,
-                  ),
-                  Padding(
-                    padding: EdgeInsets.only(bottom: 5.0),
-                    child: Flexible(
-                      child: CircleAvatar(
-                        radius: 32,
-                        backgroundColor: Colors.black54,
-                        child: CircleAvatar(
-                          radius: 30.0,
-                          backgroundColor: Colors.grey,
-                          backgroundImage: AssetImage('images/paraguay.png'),
-                        ),
-                      ),
-                    ),
-                  )
+                  currecnyTitle('USD'),
+                  currencyValue(widget.code.USD),
+                  currencySymbol('\$'),
+                  currencyFlag('images/usa.png'),
                 ],
               ),
               elevation: 4.0,
             ),
           ),
           onTap: () {
-            showDialog(
-              context: context,
-              builder: (context) => SimpleDialog(
-                title: Text(
-                  'Rate Exchange',
-                  textAlign: TextAlign.center,
-                ),
-                children: [
-                  Text(
-                    '1 ${widget.currenyCode} = ${widget.code.AED} PYG',
-                    textAlign: TextAlign.center,
-                    style: TextStyle(
-                      fontSize: 20.0,
-                      color: Theme.of(context).accentColor,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  )
-                ],
-              ),
-            );
+            displayRate(widget.currenyCode, widget.code.USD, 'USD');
           },
         ),
         GestureDetector(
           child: GridTile(
             child: Card(
+              margin: EdgeInsets.symmetric(horizontal: 5.0),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
-                  Text(
-                    'SAR',
-                    style: TextStyle(
-                        fontFamily: 'Ubuntu',
-                        fontWeight: FontWeight.bold,
-                        fontSize: 20.0,
-                        color: widget.data.themeInfo
-                            ? Colors.pink
-                            : Colors.indigoAccent),
-                  ),
-                  Text(
-                    widget.code.SAR,
-                    style:
-                        TextStyle(fontWeight: FontWeight.bold, fontSize: 20.0),
-                  ),
-                  Text(
-                    '﷼',
-                    style: TextStyle(
-                      fontFamily: 'Ubuntu',
-                      fontWeight: FontWeight.bold,
-                      fontSize: 27.0,
-                      color: Theme.of(context).accentColor,
-                    ),
-                  ),
-                  SizedBox(
-                    height: 7.0,
-                  ),
-                  Padding(
-                    padding: EdgeInsets.only(bottom: 2.0),
-                    child: Flexible(
-                      child: CircleAvatar(
-                        radius: 32,
-                        backgroundColor: Colors.black54,
-                        child: CircleAvatar(
-                          radius: 30.0,
-                          backgroundColor: Colors.grey,
-                          backgroundImage: AssetImage('images/saudiarabia.png'),
-                        ),
-                      ),
-                    ),
-                  )
+                  currecnyTitle('UYU'),
+                  currencyValue(widget.code.UYU),
+                  currencySymbol('\$U'),
+                  currencyFlag('images/uruguay.png'),
                 ],
               ),
               elevation: 4.0,
             ),
           ),
           onTap: () {
-            showDialog(
-              context: context,
-              builder: (context) => SimpleDialog(
-                title: Text(
-                  'Rate Exchange',
-                  textAlign: TextAlign.center,
-                ),
-                children: [
-                  Text(
-                    '1 ${widget.currenyCode} = ${widget.code.AED} SAR',
-                    textAlign: TextAlign.center,
-                    style: TextStyle(
-                      fontSize: 20.0,
-                      color: Theme.of(context).accentColor,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  )
-                ],
-              ),
-            );
+            displayRate(widget.currenyCode, widget.code.UYU, 'UYU');
           },
         ),
+
         GestureDetector(
           child: GridTile(
             child: Card(
+              margin: EdgeInsets.symmetric(horizontal: 5.0),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
-                  Text(
-                    'SEK',
-                    style: TextStyle(
-                        fontFamily: 'Ubuntu',
-                        fontWeight: FontWeight.bold,
-                        fontSize: 20.0,
-                        color: widget.data.themeInfo
-                            ? Colors.pink
-                            : Colors.indigoAccent),
-                  ),
-                  Text(
-                    widget.code.SEK,
-                    style:
-                        TextStyle(fontWeight: FontWeight.bold, fontSize: 20.0),
-                  ),
-                  SizedBox(height: 10.0),
-                  Text(
-                    'kr',
-                    style: TextStyle(
-                      fontFamily: 'Ubuntu',
-                      fontWeight: FontWeight.bold,
-                      fontSize: 27.0,
-                      color: Theme.of(context).accentColor,
-                    ),
-                  ),
-                  SizedBox(
-                    height: 10.0,
-                  ),
-                  Padding(
-                    padding: EdgeInsets.only(bottom: 5.0),
-                    child: Flexible(
-                      child: CircleAvatar(
-                        radius: 32,
-                        backgroundColor: Colors.black54,
-                        child: CircleAvatar(
-                          radius: 30.0,
-                          backgroundColor: Colors.grey,
-                          backgroundImage: AssetImage('images/sweden.png'),
-                        ),
-                      ),
-                    ),
-                  )
+                  currecnyTitle('ZAR'),
+                  currencyValue(widget.code.ZAR),
+                  currencySymbol('R'),
+                  currencyFlag('images/southafrica.png'),
                 ],
               ),
               elevation: 4.0,
             ),
           ),
           onTap: () {
-            showDialog(
-              context: context,
-              builder: (context) => SimpleDialog(
-                title: Text(
-                  'Rate Exchange',
-                  textAlign: TextAlign.center,
-                ),
-                children: [
-                  Text(
-                    '1 ${widget.currenyCode} = ${widget.code.AED} SEK',
-                    textAlign: TextAlign.center,
-                    style: TextStyle(
-                      fontSize: 20.0,
-                      color: Theme.of(context).accentColor,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  )
-                ],
-              ),
-            );
-          },
-        ),
-        GestureDetector(
-          child: GridTile(
-            child: Card(
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.end,
-                children: [
-                  Text(
-                    'SGD',
-                    style: TextStyle(
-                        fontFamily: 'Ubuntu',
-                        fontWeight: FontWeight.bold,
-                        fontSize: 20.0,
-                        color: widget.data.themeInfo
-                            ? Colors.pink
-                            : Colors.indigoAccent),
-                  ),
-                  Text(
-                    widget.code.SGD,
-                    style:
-                        TextStyle(fontWeight: FontWeight.bold, fontSize: 20.0),
-                  ),
-                  SizedBox(height: 10.0),
-                  Text(
-                    '\$',
-                    style: TextStyle(
-                      fontFamily: 'Ubuntu',
-                      fontWeight: FontWeight.bold,
-                      fontSize: 27.0,
-                      color: Theme.of(context).accentColor,
-                    ),
-                  ),
-                  SizedBox(
-                    height: 10.0,
-                  ),
-                  Padding(
-                    padding: EdgeInsets.only(bottom: 5.0),
-                    child: Flexible(
-                      child: CircleAvatar(
-                        radius: 32,
-                        backgroundColor: Colors.black54,
-                        child: CircleAvatar(
-                          radius: 30.0,
-                          backgroundColor: Colors.grey,
-                          backgroundImage: AssetImage('images/singapore.png'),
-                        ),
-                      ),
-                    ),
-                  )
-                ],
-              ),
-              elevation: 4.0,
-            ),
-          ),
-          onTap: () {
-            showDialog(
-              context: context,
-              builder: (context) => SimpleDialog(
-                title: Text(
-                  'Rate Exchange',
-                  textAlign: TextAlign.center,
-                ),
-                children: [
-                  Text(
-                    '1 ${widget.currenyCode} = ${widget.code.AED} SGD',
-                    textAlign: TextAlign.center,
-                    style: TextStyle(
-                      fontSize: 20.0,
-                      color: Theme.of(context).accentColor,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  )
-                ],
-              ),
-            );
-          },
-        ),
-        GestureDetector(
-          child: GridTile(
-            child: Card(
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.end,
-                children: [
-                  Text(
-                    'THB',
-                    style: TextStyle(
-                        fontFamily: 'Ubuntu',
-                        fontWeight: FontWeight.bold,
-                        fontSize: 20.0,
-                        color: widget.data.themeInfo
-                            ? Colors.pink
-                            : Colors.indigoAccent),
-                  ),
-                  Text(
-                    widget.code.THB,
-                    style:
-                        TextStyle(fontWeight: FontWeight.bold, fontSize: 20.0),
-                  ),
-                  SizedBox(height: 10.0),
-                  Text(
-                    '฿	',
-                    style: TextStyle(
-                      fontFamily: 'Ubuntu',
-                      fontWeight: FontWeight.bold,
-                      fontSize: 27.0,
-                      color: Theme.of(context).accentColor,
-                    ),
-                  ),
-                  SizedBox(
-                    height: 10.0,
-                  ),
-                  Padding(
-                    padding: EdgeInsets.only(bottom: 2.0),
-                    child: Flexible(
-                      child: CircleAvatar(
-                        radius: 32,
-                        backgroundColor: Colors.black54,
-                        child: CircleAvatar(
-                          radius: 30.0,
-                          backgroundColor: Colors.grey,
-                          backgroundImage: AssetImage('images/thailand.png'),
-                        ),
-                      ),
-                    ),
-                  )
-                ],
-              ),
-              elevation: 4.0,
-            ),
-          ),
-          onTap: () {
-            showDialog(
-              context: context,
-              builder: (context) => SimpleDialog(
-                title: Text(
-                  'Rate Exchange',
-                  textAlign: TextAlign.center,
-                ),
-                children: [
-                  Text(
-                    '1 ${widget.currenyCode} = ${widget.code.AED} THB',
-                    textAlign: TextAlign.center,
-                    style: TextStyle(
-                      fontSize: 20.0,
-                      color: Theme.of(context).accentColor,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  )
-                ],
-              ),
-            );
-          },
-        ),
-        GestureDetector(
-          child: GridTile(
-            child: Card(
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.end,
-                children: [
-                  Text(
-                    'TRY',
-                    style: TextStyle(
-                        fontFamily: 'Ubuntu',
-                        fontWeight: FontWeight.bold,
-                        fontSize: 20.0,
-                        color: widget.data.themeInfo
-                            ? Colors.pink
-                            : Colors.indigoAccent),
-                  ),
-                  Text(
-                    widget.code.TRY,
-                    style:
-                        TextStyle(fontWeight: FontWeight.bold, fontSize: 20.0),
-                  ),
-                  SizedBox(height: 10.0),
-                  Text(
-                    '₺',
-                    style: TextStyle(
-                      fontFamily: 'Ubuntu',
-                      fontWeight: FontWeight.bold,
-                      fontSize: 27.0,
-                      color: Theme.of(context).accentColor,
-                    ),
-                  ),
-                  SizedBox(
-                    height: 10.0,
-                  ),
-                  Padding(
-                    padding: EdgeInsets.only(bottom: 5.0),
-                    child: Flexible(
-                      child: CircleAvatar(
-                        radius: 32,
-                        backgroundColor: Colors.black54,
-                        child: CircleAvatar(
-                          radius: 30.0,
-                          backgroundColor: Colors.grey,
-                          backgroundImage: AssetImage('images/turkey.png'),
-                        ),
-                      ),
-                    ),
-                  )
-                ],
-              ),
-              elevation: 4.0,
-            ),
-          ),
-          onTap: () {
-            showDialog(
-              context: context,
-              builder: (context) => SimpleDialog(
-                title: Text(
-                  'Rate Exchange',
-                  textAlign: TextAlign.center,
-                ),
-                children: [
-                  Text(
-                    '1 ${widget.currenyCode} = ${widget.code.AED} TRY',
-                    textAlign: TextAlign.center,
-                    style: TextStyle(
-                      fontSize: 20.0,
-                      color: Theme.of(context).accentColor,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  )
-                ],
-              ),
-            );
-          },
-        ),
-        GestureDetector(
-          child: GridTile(
-            child: Card(
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.end,
-                children: [
-                  Text(
-                    'TWD',
-                    style: TextStyle(
-                        fontFamily: 'Ubuntu',
-                        fontWeight: FontWeight.bold,
-                        fontSize: 20.0,
-                        color: widget.data.themeInfo
-                            ? Colors.pink
-                            : Colors.indigoAccent),
-                  ),
-                  Text(
-                    widget.code.TWD,
-                    style:
-                        TextStyle(fontWeight: FontWeight.bold, fontSize: 20.0),
-                  ),
-                  SizedBox(height: 10.0),
-                  Text(
-                    'NT\$',
-                    style: TextStyle(
-                      fontFamily: 'Ubuntu',
-                      fontWeight: FontWeight.bold,
-                      fontSize: 27.0,
-                      color: Theme.of(context).accentColor,
-                    ),
-                  ),
-                  SizedBox(
-                    height: 10.0,
-                  ),
-                  Padding(
-                    padding: EdgeInsets.only(bottom: 5.0),
-                    child: Flexible(
-                      child: CircleAvatar(
-                        radius: 32,
-                        backgroundColor: Colors.black54,
-                        child: CircleAvatar(
-                          radius: 30.0,
-                          backgroundColor: Colors.grey,
-                          backgroundImage: AssetImage('images/taiwan.png'),
-                        ),
-                      ),
-                    ),
-                  )
-                ],
-              ),
-              elevation: 4.0,
-            ),
-          ),
-          onTap: () {
-            showDialog(
-              context: context,
-              builder: (context) => SimpleDialog(
-                title: Text(
-                  'Rate Exchange',
-                  textAlign: TextAlign.center,
-                ),
-                children: [
-                  Text(
-                    '1 ${widget.currenyCode} = ${widget.code.AED} TWD',
-                    textAlign: TextAlign.center,
-                    style: TextStyle(
-                      fontSize: 20.0,
-                      color: Theme.of(context).accentColor,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  )
-                ],
-              ),
-            );
-          },
-        ),
-        GestureDetector(
-          child: GridTile(
-            child: Card(
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.end,
-                children: [
-                  Text(
-                    'UAH',
-                    style: TextStyle(
-                        fontFamily: 'Ubuntu',
-                        fontWeight: FontWeight.bold,
-                        fontSize: 20.0,
-                        color: widget.data.themeInfo
-                            ? Colors.pink
-                            : Colors.indigoAccent),
-                  ),
-                  Text(
-                    widget.code.UAH,
-                    style:
-                        TextStyle(fontWeight: FontWeight.bold, fontSize: 20.0),
-                  ),
-                  SizedBox(height: 10.0),
-                  Text(
-                    '₴',
-                    style: TextStyle(
-                      fontFamily: 'Ubuntu',
-                      fontWeight: FontWeight.bold,
-                      fontSize: 27.0,
-                      color: Theme.of(context).accentColor,
-                    ),
-                  ),
-                  SizedBox(
-                    height: 10.0,
-                  ),
-                  Padding(
-                    padding: EdgeInsets.only(bottom: 5.0),
-                    child: Flexible(
-                      child: CircleAvatar(
-                        radius: 32,
-                        backgroundColor: Colors.black54,
-                        child: CircleAvatar(
-                          radius: 30.0,
-                          backgroundColor: Colors.grey,
-                          backgroundImage: AssetImage('images/ukraine.png'),
-                        ),
-                      ),
-                    ),
-                  )
-                ],
-              ),
-              elevation: 4.0,
-            ),
-          ),
-          onTap: () {
-            showDialog(
-              context: context,
-              builder: (context) => SimpleDialog(
-                title: Text(
-                  'Rate Exchange',
-                  textAlign: TextAlign.center,
-                ),
-                children: [
-                  Text(
-                    '1 ${widget.currenyCode} = ${widget.code.AED} UAH',
-                    textAlign: TextAlign.center,
-                    style: TextStyle(
-                      fontSize: 20.0,
-                      color: Theme.of(context).accentColor,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  )
-                ],
-              ),
-            );
-          },
-        ),
-        GestureDetector(
-          child: GridTile(
-            child: Card(
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.end,
-                children: [
-                  Text(
-                    'USD',
-                    style: TextStyle(
-                        fontFamily: 'Ubuntu',
-                        fontWeight: FontWeight.bold,
-                        fontSize: 20.0,
-                        color: widget.data.themeInfo
-                            ? Colors.pink
-                            : Colors.indigoAccent),
-                  ),
-                  Text(
-                    widget.code.USD,
-                    style:
-                        TextStyle(fontWeight: FontWeight.bold, fontSize: 20.0),
-                  ),
-                  SizedBox(height: 10.0),
-                  Text(
-                    '\$',
-                    style: TextStyle(
-                      fontFamily: 'Ubuntu',
-                      fontWeight: FontWeight.bold,
-                      fontSize: 27.0,
-                      color: Theme.of(context).accentColor,
-                    ),
-                  ),
-                  SizedBox(
-                    height: 10.0,
-                  ),
-                  Padding(
-                    padding: EdgeInsets.only(bottom: 5.0),
-                    child: Flexible(
-                      child: CircleAvatar(
-                        radius: 32,
-                        backgroundColor: Colors.black54,
-                        child: CircleAvatar(
-                          radius: 30.0,
-                          backgroundColor: Colors.grey,
-                          backgroundImage: AssetImage('images/usa.png'),
-                        ),
-                      ),
-                    ),
-                  )
-                ],
-              ),
-              elevation: 4.0,
-            ),
-          ),
-          onTap: () {
-            showDialog(
-              context: context,
-              builder: (context) => SimpleDialog(
-                title: Text(
-                  'Rate Exchange',
-                  textAlign: TextAlign.center,
-                ),
-                children: [
-                  Text(
-                    '1 ${widget.currenyCode} = ${widget.code.AED} USD',
-                    textAlign: TextAlign.center,
-                    style: TextStyle(
-                      fontSize: 20.0,
-                      color: Theme.of(context).accentColor,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  )
-                ],
-              ),
-            );
-          },
-        ),
-        GestureDetector(
-          child: GridTile(
-            child: Card(
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.end,
-                children: [
-                  Text(
-                    'UYU',
-                    style: TextStyle(
-                        fontFamily: 'Ubuntu',
-                        fontWeight: FontWeight.bold,
-                        fontSize: 20.0,
-                        color: widget.data.themeInfo
-                            ? Colors.pink
-                            : Colors.indigoAccent),
-                  ),
-                  Text(
-                    widget.code.UYU,
-                    style:
-                        TextStyle(fontWeight: FontWeight.bold, fontSize: 20.0),
-                  ),
-                  SizedBox(height: 10.0),
-                  Text(
-                    '\$U',
-                    style: TextStyle(
-                      fontFamily: 'Ubuntu',
-                      fontWeight: FontWeight.bold,
-                      fontSize: 27.0,
-                      color: Theme.of(context).accentColor,
-                    ),
-                  ),
-                  SizedBox(
-                    height: 10.0,
-                  ),
-                  Padding(
-                    padding: EdgeInsets.only(bottom: 5.0),
-                    child: Flexible(
-                      child: CircleAvatar(
-                        radius: 32,
-                        backgroundColor: Colors.black54,
-                        child: CircleAvatar(
-                          radius: 30.0,
-                          backgroundColor: Colors.grey,
-                          backgroundImage: AssetImage('images/uruguay.png'),
-                        ),
-                      ),
-                    ),
-                  )
-                ],
-              ),
-              elevation: 4.0,
-            ),
-          ),
-          onTap: () {
-            showDialog(
-              context: context,
-              builder: (context) => SimpleDialog(
-                title: Text(
-                  'Rate Exchange',
-                  textAlign: TextAlign.center,
-                ),
-                children: [
-                  Text(
-                    '1 ${widget.currenyCode} = ${widget.code.AED} UYU',
-                    textAlign: TextAlign.center,
-                    style: TextStyle(
-                      fontSize: 20.0,
-                      color: Theme.of(context).accentColor,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  )
-                ],
-              ),
-            );
-          },
-        ),
-        GestureDetector(
-          child: GridTile(
-            child: Card(
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.end,
-                children: [
-                  Text(
-                    'ZAR',
-                    style: TextStyle(
-                        fontFamily: 'Ubuntu',
-                        fontWeight: FontWeight.bold,
-                        fontSize: 20.0,
-                        color: widget.data.themeInfo
-                            ? Colors.pink
-                            : Colors.indigoAccent),
-                  ),
-                  Text(
-                    widget.code.ZAR,
-                    style:
-                        TextStyle(fontWeight: FontWeight.bold, fontSize: 20.0),
-                  ),
-                  SizedBox(height: 10.0),
-                  Text(
-                    'R',
-                    style: TextStyle(
-                      fontFamily: 'Ubuntu',
-                      fontWeight: FontWeight.bold,
-                      fontSize: 27.0,
-                      color: Theme.of(context).accentColor,
-                    ),
-                  ),
-                  SizedBox(
-                    height: 10.0,
-                  ),
-                  Padding(
-                    padding: EdgeInsets.only(bottom: 5.0),
-                    child: Flexible(
-                      child: CircleAvatar(
-                        radius: 32,
-                        backgroundColor: Colors.black54,
-                        child: CircleAvatar(
-                          radius: 30.0,
-                          backgroundColor: Colors.grey,
-                          backgroundImage: AssetImage('images/southafrica.png'),
-                        ),
-                      ),
-                    ),
-                  )
-                ],
-              ),
-              elevation: 4.0,
-            ),
-          ),
-          onTap: () {
-            showDialog(
-              context: context,
-              builder: (context) => SimpleDialog(
-                title: Text(
-                  'Rate Exchange',
-                  textAlign: TextAlign.center,
-                ),
-                children: [
-                  Text(
-                    '1 ${widget.currenyCode} = ${widget.code.AED} ZAR',
-                    textAlign: TextAlign.center,
-                    style: TextStyle(
-                      fontSize: 20.0,
-                      color: Theme.of(context).accentColor,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  )
-                ],
-              ),
-            );
+            displayRate(widget.currenyCode, widget.code.ZAR, 'ZAR');
           },
         ),
       ],

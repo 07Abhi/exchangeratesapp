@@ -11,8 +11,6 @@ import 'package:flutter/material.dart';
 import '../widgets/shimeffect.dart';
 
 class MyHomePage extends StatefulWidget {
-  MyHomePage({Key key}) : super(key: key);
-
   @override
   _MyHomePageState createState() => _MyHomePageState();
 }
@@ -21,9 +19,10 @@ class _MyHomePageState extends State<MyHomePage> {
   bool isSearch = false;
   bool hideSearch = true;
   bool _isData = false;
+  bool _isBlack = false;
   final textFieldKey = GlobalKey<AutoCompleteTextFieldState>();
   final scaffKey = GlobalKey<ScaffoldState>();
-  String codevalue = "USD";
+  String codevalue = "INR";
 
   final _textController = TextEditingController();
   CurrencyModel currency = new CurrencyModel();
@@ -76,27 +75,32 @@ class _MyHomePageState extends State<MyHomePage> {
         resizeToAvoidBottomPadding: false,
         floatingActionButton: Align(
           alignment: Alignment.bottomCenter,
-          child: FloatingActionButton(
-            backgroundColor: data.themeInfo ? Colors.pink : Colors.indigoAccent,
-            shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(20.0)),
-            onPressed: () {
-              SnackBar snackBar = SnackBar(
-                content: Text('Current base currency:- $codevalue'),
-                action: SnackBarAction(
-                    label: 'Ok',
-                    onPressed: () {
-                      scaffKey.currentState.hideCurrentSnackBar();
-                    }),
-              );
-              scaffKey.currentState.showSnackBar(snackBar);
-            },
-            child: Text(
-              codevalue,
-              style: TextStyle(
-                fontFamily: 'Ubuntu',
-                color: Colors.white,
-                fontWeight: FontWeight.bold,
+          child: Visibility(
+            visible: _isData,
+            child: FloatingActionButton(
+              backgroundColor:
+                  data.themeInfo ? Colors.pink : Colors.indigoAccent,
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(20.0),
+              ),
+              onPressed: () {
+                SnackBar snackBar = SnackBar(
+                  content: Text('Current base currency:- $codevalue'),
+                  action: SnackBarAction(
+                      label: 'Ok',
+                      onPressed: () {
+                        scaffKey.currentState.hideCurrentSnackBar();
+                      }),
+                );
+                scaffKey.currentState.showSnackBar(snackBar);
+              },
+              child: Text(
+                codevalue,
+                style: TextStyle(
+                  fontFamily: 'Ubuntu',
+                  color: Colors.white,
+                  fontWeight: FontWeight.bold,
+                ),
               ),
             ),
           ),
@@ -224,8 +228,11 @@ class _MyHomePageState extends State<MyHomePage> {
             ],
           ),
         ),
-        body: _isData ? DataScreen(currency, data,codevalue) : ShimEffect(),
+        body: _isData
+            ? DataScreen(currency, data, codevalue)
+            : ShimEffect(data.themeInfo),
       ),
     );
   }
 }
+/**/
